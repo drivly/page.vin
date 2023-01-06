@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ site.title | 'The issue tracking tool you'll enjoy using' }}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            theme: tailwind.colors.indigo,
+          }
+        }
+      }
+    }
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1H20T9FMJY"></script>
+  <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date());  gtag('config', 'G-1H20T9FMJY');</script>
+  <script id="json" type="application/json">{{ site.data | jsonify }}</script>
+</head>
+<body class="flex h-screen bg-zinc-900">
+  <div class="m-auto max-w-md px-4 sm:px-6 sm:max-w-xl md:max-w-2xl">
+    <div class="text-center">
+      <h3 class="text-xs font-bold tracking-[.5em] text-theme-800 sm:text-sm md:text-lg">{{ site.badge | 'LIMITED BETA RELEASE' }}</h3>
+      <h1 class="mt-3 text-4xl font-bold tracking-tight text-zinc-100 sm:text-5xl md:text-6xl">
+       {{ site.title | "The issue tracking tool <wbr/>you'll enjoy using" }}
+      </h1>
+      <p class="mx-auto mt-3 max-w-md text-base text-zinc-500 sm:text-lg md:mt-5 md:max-w-3xl md:text-xl">{{ site.description | "Linear helps streamline software projects, sprints, tasks, and bug tracking. It's built for high-performance teams." }}</p>
+      <form action="https://api.producthunt.com/widgets/upcoming/v1/upcoming/waitlist-pages/forms" class="mt-8 mx-auto max-w-xl"  method="post" id="ph-email-form" name="ph-email-form" target="_blank">
+        <div class="sm:flex">
+          <div class="min-w-0 flex-1">
+            <label for="ph-email" class="sr-only">Email address</label>
+            <input name="email" id="ph-email" type="email" required placeholder="Enter your email" class="block w-full rounded-md border-0 px-4 py-3 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:ring-offset-2 focus:ring-offset-gray-900">
+          </div>
+          <div class="mt-3 sm:mt-0 sm:ml-3">
+            <button type="submit" value="Subscribe" name="subscribe" id="ph-subscribe-button" class="block w-full rounded-md bg-theme-600 py-3 px-4 font-medium text-white shadow hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:ring-offset-2 focus:ring-offset-gray-900">{{ site.callToAction | "Get Free API Key" }}</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
