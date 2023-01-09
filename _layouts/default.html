@@ -214,12 +214,7 @@
             {% for item in site.data.apis.vins %} {% if item.status == "active"
             %}
             <option value="{{ item.url }}"></option>
-          </select>
-        </div>
-        <div>
-          <select name="apis_vin" id="">
-            {% for item in site.apis.vins %} {% if item.status == "active" %}
-            <option value="{{ item.url }}"></option>
+            {% endif %} {% endfor %}
           </select>
         </div>
       </div>

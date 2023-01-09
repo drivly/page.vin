@@ -2,19 +2,3 @@ badge: Limited Beta Release
 title: OEM vehicle information tool you'll enjoy using
 description: VIN is your source for all OEM information about a vehicle.
 callToAction: Request Early Access
-vins:
-  - title: build.vin
-    url: https://build.vin
-    status: active
-  - title: buy.vin
-    url: https://buy.vin
-    status: active
-  - title: specs.vin
-    url: https://specs.vin
-    status: active
-  - title: ins.vin
-    url: https://ins.vin
-    status: inactive
-  - title: wholesale.vin
-    url: https://wholesale.vin
-    status: inactive
