@@ -263,7 +263,7 @@
   >
     <div class="px-4 sm:px-6 mx-auto">
       <div
-        class="text-center m-auto max-w-md px-4 sm:px-6 sm:max-w-xl md:max-w-2xl"
+        class="text-center m-auto max-w-md px-4 sm:px-6 sm:max-w-xl md:max-w-2xl mt-8"
       >
         <h3
           class="text-xs font-bold tracking-[.5em] text-theme-800 sm:text-sm md:text-lg"
@@ -291,6 +291,7 @@
               type="text"
               name="api.vin"
               id="vin"
+              value="SCFRMFAW3LGL09248"
               placeholder="Enter a VIN..."
               class="w-full outline-none border-none focus:ring-0 bg-transparent placeholder:text-gray-400 text-gray-100 text-lg tracking-wider"
             />
@@ -501,12 +502,13 @@
       id = "toolButton";
 
       function generateVinLink() {
-        const input = document.getElementById("vin");
-        const vin = input.value;
-        input.value = "";
+        var x = document.getElementById("vin");
+        var defaultVal = x.defaultValue;
+        var currentVal = x.value;
+        const vinValue = currentVal ? currentVal : defaultVal;
         const selection = document.getElementById("tool");
         const tool = selection.value;
-        const newLink = `${tool}/${vin}`;
+        const newLink = `${tool}/${vinValue}`;
 
         if (newLink) {
           window.open(newLink);
