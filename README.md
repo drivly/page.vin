@@ -1,4 +1,4 @@
-# page.vin
+# PAGE.VIN
 
 ## In progress
 - [build.vin: OEM Build Data](https://build.vin)

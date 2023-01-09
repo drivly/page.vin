@@ -4,13 +4,85 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{ site.title | 'Vehicle data by VIN' }}</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
     <script>
       tailwind.config = {
         theme: {
           extend: {
             colors: {
               theme: tailwind.colors.indigo,
+            },
+            fontFamily: {
+              IBM: ["IBM Plex Sans", "sans-serif"],
+              Montserrat: ["Montserrat", "sans-serif"],
+            },
+            typography: {
+              DEFAULT: {
+                css: {
+                  // color: "#060611",
+                  h1: {
+                    color: "#060611",
+                    fontFamily: "Montserrat",
+                    fontWeight: "bold !important",
+                    fontSize: ["40px"],
+                    lineHeight: ["40px"],
+                  },
+                  h2: {
+                    color: "#231323",
+                    fontFamily: "Montserrat",
+                    fontWeight: 700,
+                    fontStyle: "normal",
+                    fontSize: ["32px"],
+                    lineHeight: ["39px"],
+                  },
+                  h3: {
+                    fontFamily: "Montserrat",
+                    fontWeight: 500,
+                    fontStyle: "normal",
+                    fontSize: ["24px"],
+                    lineHeight: ["32px"],
+                  },
+                  h5: {
+                    color: "#231323",
+                    fontFamily: "IBM Plex Sans",
+                    fontWeight: 400,
+                    fontSize: ["24px"],
+                    lineHeight: ["32px"],
+                  },
+                  p: {
+                    color: "#4D4E58",
+                    fontFamily: "IBM Plex Sans",
+                    fontWeight: 400,
+                    fontSize: ["18px"],
+                    lineHeight: "24px",
+                  },
+                  pre: {
+                    height: auto,
+                    maxHeight: ["600px"],
+                    marginBottom: ["20px"],
+                  },
+                  code: {
+                    height: auto,
+                    maxHeight: ["600px"],
+                    marginBottom: ["20px"],
+                  },
+                  ol: {
+                    listStyle: "none",
+                  },
+                  ul: {
+                    listStyle: "none",
+                  },
+                  li: {
+                    overflowWrap: "anywhere",
+                  },
+                  a: {
+                    overflowWrap: "anywhere",
+                    textDecoration: "none",
+                    marginTop: 0,
+                    padding: 0,
+                  },
+                },
+              },
             },
           },
         },
@@ -211,10 +283,11 @@
         </p>
         <div>
           <select name="apis_vin" id="">
-            {% for item in site.data.apis.vins %} {% if item.status == "active"
-            %}
-            <option value="{{ item.url }}"></option>
-            {% endif %} {% endfor %}
+            {% for item in site.data.apis.vins %}
+              {% if item.status == "active" %}
+                <option value="{{ item.url }}">{{ item.title }}</option>
+              {% endif %} 
+            {% endfor %}
           </select>
         </div>
       </div>
