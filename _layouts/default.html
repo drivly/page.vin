@@ -1,45 +1,363 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ site.title | 'The issue tracking tool you'll enjoy using' }}</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            theme: tailwind.colors.indigo,
-          }
-        }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ site.title | 'Vehicle data by VIN' }}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              theme: tailwind.colors.indigo,
+            },
+          },
+        },
+      };
+    </script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autolinker/prism-autolinker.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.5.0/prism-dracula.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/mermaid@9.1.7/dist/mermaid.min.js"
+    ></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html {
+        overflow-wrap: break-word;
       }
-    }
-  </script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1H20T9FMJY"></script>
-  <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date());  gtag('config', 'G-1H20T9FMJY');</script>
-  <script id="json" type="application/json">{{ site.data | jsonify }}</script>
-</head>
-<body class="flex h-screen bg-zinc-900">
-  <div class="m-auto max-w-md px-4 sm:px-6 sm:max-w-xl md:max-w-2xl">
-    <div class="text-center">
-      <h3 class="text-xs font-bold tracking-[.5em] text-theme-800 sm:text-sm md:text-lg">{{ site.badge | 'LIMITED BETA RELEASE' }}</h3>
-      <h1 class="mt-3 text-4xl font-bold tracking-tight text-zinc-100 sm:text-5xl md:text-6xl">
-       {{ site.title | "The issue tracking tool <wbr/>you'll enjoy using" }}
-      </h1>
-      <p class="mx-auto mt-3 max-w-md text-base text-zinc-500 sm:text-lg md:mt-5 md:max-w-3xl md:text-xl">{{ site.description | "Linear helps streamline software projects, sprints, tasks, and bug tracking. It's built for high-performance teams." }}</p>
-      <form action="https://api.producthunt.com/widgets/upcoming/v1/upcoming/waitlist-pages/forms" class="mt-8 mx-auto max-w-xl"  method="post" id="ph-email-form" name="ph-email-form" target="_blank">
-        <div class="sm:flex">
-          <div class="min-w-0 flex-1">
-            <label for="ph-email" class="sr-only">Email address</label>
-            <input name="email" id="ph-email" type="email" required placeholder="Enter your email" class="block w-full rounded-md border-0 px-4 py-3 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:ring-offset-2 focus:ring-offset-gray-900">
-          </div>
-          <div class="mt-3 sm:mt-0 sm:ml-3">
-            <button type="submit" value="Subscribe" name="subscribe" id="ph-subscribe-button" class="block w-full rounded-md bg-theme-600 py-3 px-4 font-medium text-white shadow hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:ring-offset-2 focus:ring-offset-gray-900">{{ site.callToAction | "Get Free API Key" }}</button>
-          </div>
+      pre,
+      code {
+        height: auto;
+        max-height: 600px;
+        padding-bottom: 22.5px;
+      }
+      h1 {
+        color: #060611;
+        font-family: "Montserrat";
+        font-weight: 700 !important;
+        font-size: 40px;
+        line-height: 40px;
+        text-transform: capitalize;
+      }
+      h1 > a {
+        color: #060611;
+        font-family: "Montserrat";
+        font-weight: 700 !important;
+        font-size: 40px;
+        line-height: 40px;
+        text-transform: capitalize;
+      }
+      h2 {
+        color: #231323;
+        font-family: "IBM Plex Sans";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 32px;
+        line-height: 24px;
+      }
+      h2 > a {
+        color: #231323;
+        font-family: "IBM Plex Sans";
+        font-style: normal;
+        font-weight: 400 !important;
+        font-size: 32px;
+        line-height: 24px;
+      }
+      h3 > a {
+        color: #060611;
+        font-family: Montserrat;
+        font-weight: 500 !important;
+        font-style: normal;
+        font-size: 24px;
+        line-height: 32px;
+      }
+      p {
+        color: #4d4e58;
+        font-family: "IBM Plex Sans";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 1.7rem;
+      }
+      ul {
+        padding-left: -10px;
+        padding: 0;
+        list-style: none;
+        position: relative;
+        /* Setup the counter. */
+      }
+      ul > li::before {
+        content: "";
+        /* Use the counter number as content. */
+        background-color: #060611;
+        border-radius: 4px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 6px;
+        height: 6px;
+        padding: 2px;
+        position: absolute;
+        left: 0;
+        margin-left: 8px;
+        margin-top: 10px;
+      }
+      ol {
+        list-style-type: none;
+        padding-left: -10px;
+        padding: 0;
+        /* Setup the counter. */
+        counter-reset: list;
+      }
+      ol > li::before {
+        list-style: none;
+        /* Advance the number. */
+        counter-increment: list;
+        /* Use the counter number as content. */
+        content: counter(list);
+        color: #4d4e58;
+        background-color: rgb(243 244 246);
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 20px;
+        height: 24px;
+        margin-right: 8px;
+      }
+      ol > li {
+        padding-left: -6px;
+        display: flex;
+        align-items: center;
+        margin: 0px 0px 16px -31px;
+        padding: 0;
+      }
+      li {
+        color: #4d4e58;
+        font-family: IBM Plex Sans;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 24px;
+      }
+      a {
+        margin: 0 !important;
+        padding: 0;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-1H20T9FMJY"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-1H20T9FMJY");
+    </script>
+    <script id="json" type="application/json">
+      {{ site.data | jsonify }}
+    </script>
+  </head>
+  <body
+    class="flex flex-col items-center justify-center h-screen bg-white"
+    data-instant-allow-external-links
+  >
+    <div class="px-4 sm:px-6 mx-auto">
+      <div
+        class="text-center m-auto max-w-md px-4 sm:px-6 sm:max-w-xl md:max-w-2xl"
+      >
+        <h3
+          class="text-xs font-bold tracking-[.5em] text-theme-800 sm:text-sm md:text-lg"
+        >
+          {{ site.badge | 'LIMITED BETA RELEASE' }}
+        </h3>
+        <h1
+          class="mt-3 text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl md:text-6xl"
+        >
+          {{ site.title | "OEM vehicle information tool <wbr />you'll enjoy
+          using" }}
+        </h1>
+        <p
+          class="mx-auto mt-3 max-w-md text-base text-zinc-500 sm:text-lg md:mt-5 md:max-w-3xl md:text-xl"
+        >
+          {{ site.description | "VIN is your source for all OEM information
+          about a vehicle." }}
+        </p>
+        <div>
+          <select name="apis_vin" id="">
+            {% for item in site.data.apis.vins %} {% if item.status == "active"
+            %}
+            <option value="{{ item.url }}"></option>
+          </select>
         </div>
-      </form>
+        <div>
+          <select name="apis_vin" id="">
+            {% for item in site.apis.vins %} {% if item.status == "active" %}
+            <option value="{{ item.url }}"></option>
+          </select>
+        </div>
+      </div>
+      <main class="h-full">
+        <section
+          class="max-h-full prose mx-auto min-w-sm px-4 sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-4xl pt-8"
+        >
+          {{ content }}
+        </section>
+      </main>
     </div>
-  </div>
-</body>
+    <footer class="max-w-6xl w-full mx-auto px-4 pt-10">
+      <div
+        class="border-t border-gray-200 py-12 text-center md:flex md:justify-between"
+      >
+        <div class="flex justify-center items-center space-x-6 md:order-2">
+          <span>
+            <a
+              href="mailto:team@driv.ly"
+              class="text-gray-400 hover:text-[#060611]"
+            >
+              <span class="sr-only">Contact</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                />
+              </svg>
+            </a>
+          </span>
+
+          <span>
+            <a
+              href="https://www.linkedin.com/company/drivly"
+              target="_blank"
+              class="text-gray-400 hover:text-[#060611]"
+            >
+              <span class="sr-only">LinkedIn</span>
+              <svg
+                class="h-4 w-4"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                />
+              </svg>
+            </a>
+          </span>
+
+          <span>
+            <a
+              href="https://twitter.com/drivly"
+              target="_blank"
+              class="text-gray-400 hover:text-[#060611]"
+            >
+              <span class="sr-only">Twitter</span>
+              <svg
+                class="h-5 w-5"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"
+                />
+              </svg>
+            </a>
+          </span>
+
+          <span>
+            <a
+              href="{{ site.github.repository_url }}"
+              target="_blank"
+              class="text-gray-400 hover:text-[#060611]"
+            >
+              <span class="sr-only">GitHub</span>
+              <svg
+                class="h-5 w-5"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </a>
+          </span>
+        </div>
+
+        <div class="mt-8 md:mt-0 md:order-1">
+          <a class="text-gray-400" href="https://driv.ly">
+            <p class="text-center text-sm sm:text-xs text-gray-400">
+              Copyright &copy; {{ 'now' | date: "%Y" }} Auto.dev powered by
+              Drivly
+            </p>
+          </a>
+        </div>
+      </div>
+    </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.js"
+      data-manual
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/normalize-whitespace/prism-normalize-whitespace.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autolinker/prism-autolinker.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+
+    <script>
+      var elements = document.querySelectorAll(
+        ".highlighter-rouge:not(.language-mermaid) pre.highlight"
+      );
+
+      for (var element of elements) {
+        Prism.highlightElement(element, false);
+      }
+      Prism.plugins.autoloader.languages_path =
+        "https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/";
+    </script>
+    <script
+      src="//instant.page/5.1.1"
+      type="module"
+      integrity="sha384-MWfCL6g1OTGsbSwfuMHc8+8J2u71/LA8dzlIN3ycajckxuZZmF+DNjdm7O6H3PSq"
+    ></script>
+  </body>
 </html>
