@@ -292,8 +292,8 @@
           about a vehicle." }}
         </p>
         <div class="flex border-gray-200 border rounded-[5px] bg-gray-800 mt-4">
-          <div class="w-full flex flex-col items-start pt-2 flex-1">
-            <label for="api.vin" class="text-white pl-3 font-semibold"
+          <div class="w-full flex flex-col items-start pt-2.5 flex-1 -space-y-1">
+            <label for="api.vin" class="text-white pl-3 font-semibold text-sm"
               >Vehicle VIN</label
             >
             <input
@@ -305,14 +305,14 @@
               class="w-full outline-none border-none focus:ring-0 bg-transparent placeholder:text-gray-400 text-gray-100 text-lg tracking-wider"
             />
           </div>
-          <div class="text-left pt-2 w-fit flex flex-col flex-shrink-0">
-            <label class="text-white pl-3 font-semibold" for="tool"
+          <div class="text-left pt-2.5 w-fit flex flex-col flex-shrink-0 -space-y-1">
+            <label class="text-white pl-3 font-semibold text-sm" for="tool"
               >Select Tool</label
             >
             <select
               name="tool"
               id="tool"
-              class="border-transparent focus:border-transparent focus:ring-0 bg-transparent text-gray-100 font-Montserrat text-lg"
+              class="border-transparent focus:border-transparent focus:ring-0 bg-transparent text-gray-100 font-Montserrat text-lg leading-[110%]"
             >
               {% for item in site.data.apis.vins %} {% if item.status ==
               "active" %}
@@ -324,9 +324,11 @@
             type="submit"
             id="toolButton"
             href="/carData.html"
-            class="flex w-fit justify-center items-center shadow-lg rounded-md border border-transparent bg-blue-600 py-3 px-4 text-lg font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+            class="group flex w-fit justify-center items-center shadow-lg rounded-r-md border border-transparent bg-DRIVLY_GREEN py-3 px-4 text-lg font-medium text-white shadow-sm focus:outline-none hover:bg-opacity-95 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
           >
+          <span class="group-hover:brightness-150">
             Launch
+          </span>
           </button>
         </div>
       </div>
