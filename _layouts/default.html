@@ -56,6 +56,7 @@
                     fontWeight: 400,
                     fontSize: ["18px"],
                     lineHeight: "24px",
+                    marginBottom: "4px",
                   },
                   pre: {
                     height: "auto",
@@ -72,9 +73,12 @@
                   },
                   ul: {
                     listStyle: "none",
+                    marginTop: "0px",
                   },
                   li: {
                     overflowWrap: "anywhere",
+                    marginTop: 0,
+                    marginBottom: 0,
                   },
                   a: {
                     overflowWrap: "anywhere",
@@ -178,12 +182,14 @@
         font-weight: 400;
         font-size: 18px;
         line-height: 1.7rem;
+        margin-bottom: 4px;
       }
       ul {
         padding-left: -10px;
         padding: 0;
         list-style: none;
         position: relative;
+        margin-top: 0px;
         /* Setup the counter. */
       }
       ul > li::before {
@@ -238,6 +244,8 @@
         font-weight: 400;
         font-size: 18px;
         line-height: 24px;
+        margin-top: 0px;
+        margin-bottom: 0px;
       }
       a {
         margin: 0 !important;
@@ -280,8 +288,7 @@
           referrerpolicy="no-referrer"
           class="ml-8 whitespace-nowrap inline-flex items-center justify-between px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gray-800 hover:bg-gray-600 gap-x-3"
         >
-          Get Started
-          {% include githubIcon.html variant="currentColor" %}
+          Get Started {% include githubIcon.html variant="currentColor" %}
         </a>
       </div>
     </nav>
@@ -324,7 +331,7 @@
                 id="vin"
                 value="SCFRMFAW3LGL09248"
                 placeholder="Enter a VIN..."
-                class="w-full py-0 outline-none border-none focus:ring-0 bg-transparent placeholder:text-gray-400 text-[#f8f8f8] text-base sm:text-lg tracking-wide  font-IBM"
+                class="w-full py-0 outline-none border-none focus:ring-0 bg-transparent placeholder:text-gray-400 text-[#f8f8f8] text-base sm:text-lg tracking-wide font-IBM"
               />
             </div>
 
