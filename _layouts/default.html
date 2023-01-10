@@ -97,13 +97,6 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.css"
     />
-
-    <!-- <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.5.0/prism-dracula.min.css"
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    /> -->
     <script
       type="text/javascript"
       src="https://unpkg.com/mermaid@9.1.7/dist/mermaid.min.js"
@@ -303,7 +296,9 @@
         </a>
       </div>
     </nav>
-    <div class="px-4 sm:px-6 mx-auto flex flex-col items-center justify-center w-full">
+    <div
+      class="px-4 sm:px-6 mx-auto flex flex-col items-center justify-center w-full"
+    >
       <div
         class="text-center m-auto max-w-md px-4 sm:px-6 sm:max-w-xl md:max-w-2xl mt-16"
       >
@@ -325,7 +320,7 @@
           about a vehicle." }}
         </p>
         <div
-          class="flex border-gray-200 border rounded-[5px] bg-gray-800 mt-4 p-1"
+          class="flex border-gray-200 border rounded-[5px] bg-gray-800 mt-4 p-1 pt-0"
         >
           <div class="w-full flex flex-col items-start pt-2.5 flex-1 space-y-0">
             <label
@@ -365,7 +360,7 @@
             type="submit"
             id="toolButton"
             href="/carData.html"
-            class="group flex w-fit justify-center items-center shadow-lg rounded-r-md border border-transparent bg-DRIVLY_GREEN px-3 text-lg shadow-sm focus:outline-none hover:bg-opacity-95 focus:ring-0"
+            class="group flex w-fit justify-center items-center shadow-lg rounded-r-[4px] border border-transparent bg-DRIVLY_GREEN px-3 text-lg shadow-sm focus:outline-none m-1 mt-2 hover:bg-opacity-95 focus:ring-0"
           >
             <span
               class="group-hover:brightness-150 tracking-widest text-white text-base font-medium"
@@ -551,10 +546,6 @@
     ></script>
     <script type="text/javascript">
       // DOM Code
-      id = "vin";
-      id = "tool";
-      id = "toolButton";
-
       function generateVinLink() {
         var x = document.getElementById("vin");
         var defaultVal = x.defaultValue;
@@ -567,11 +558,25 @@
         if (newLink) {
           window.open(newLink);
         }
-        console.log("toll", tool, vin);
       }
       document
         .getElementById("toolButton")
         .addEventListener("click", generateVinLink);
+
+      const codeWindow = document.querySelector(
+        ".language-json.highlighter-rouge"
+      );
+      const codeHeader = `
+        <div
+              class="flex items-center justify-between border-b-4 bg-[#01111D] border-[#122D42] z-50 rounded-t-[4px] h-[47px] -mb-[27px] z-40"
+            >
+              <h3 class="p-4 px-6 m-0 flex-1 uppercase text-DRIVLY_GREEN text-sm">
+                JSON
+              </h3>
+            </div>
+        `;
+
+      codeWindow.insertAdjacentHTML("afterbegin", codeHeader);
     </script>
   </body>
 </html>
