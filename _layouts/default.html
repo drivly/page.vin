@@ -303,7 +303,7 @@
         </a>
       </div>
     </nav>
-    <div class="px-4 sm:px-6 mx-auto flex flex-col items-center justify-center">
+    <div class="px-4 sm:px-6 mx-auto flex flex-col items-center justify-center w-full">
       <div
         class="text-center m-auto max-w-md px-4 sm:px-6 sm:max-w-xl md:max-w-2xl mt-16"
       >
@@ -324,9 +324,13 @@
           {{ site.description | "VIN is your source for all OEM information
           about a vehicle." }}
         </p>
-        <div class="flex border-gray-200 border rounded-[5px] bg-gray-800 mt-4 p-1">
+        <div
+          class="flex border-gray-200 border rounded-[5px] bg-gray-800 mt-4 p-1"
+        >
           <div class="w-full flex flex-col items-start pt-2.5 flex-1 space-y-0">
-            <label for="api.vin" class="text-[#C3C3C3] pl-3 font-semibold text-sm"
+            <label
+              for="api.vin"
+              class="text-[#C3C3C3] pl-3 font-semibold text-sm"
               >Vehicle VIN</label
             >
             <input
@@ -361,15 +365,17 @@
             type="submit"
             id="toolButton"
             href="/carData.html"
-            class="group flex w-fit justify-center items-center shadow-lg rounded-r-md border border-transparent bg-DRIVLY_GREEN px-3 text-lg  shadow-sm focus:outline-none hover:bg-opacity-95 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+            class="group flex w-fit justify-center items-center shadow-lg rounded-r-md border border-transparent bg-DRIVLY_GREEN px-3 text-lg shadow-sm focus:outline-none hover:bg-opacity-95 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
           >
-            <span class="group-hover:brightness-150 tracking-widest text-white text-base font-medium">
+            <span
+              class="group-hover:brightness-150 tracking-widest text-white text-base font-medium"
+            >
               Launch <span class="group-hover:rotate-45"> 🚀 </span></span
             >
           </button>
         </div>
       </div>
-      <main class="h-full">
+      <main class="h-full w-full">
         <section
           class="max-h-full prose mx-auto min-w-sm px-4 sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-4xl pt-8"
         >
