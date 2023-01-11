@@ -278,11 +278,11 @@
       <div class="flex justify-start items-center flex-1">
         <a href="#">
           <span class="sr-only">Docs</span>
-          <p id="project-title"
+          <p
+            id="project-title"
             class="w-auto text-4xl sm:text-3xl text-bold flex flex-row items-center"
           >
-            
-          {% include vinIcon.html %}
+            {{ site.data.github.project_title }}{% include vinIcon.html %}
             <!-- <img src="/assets/VIN.svg" alt=".VIN" /> -->
           </p>
         </a>
@@ -372,7 +372,7 @@
             <span
               class="group-hover:brightness-150 tracking-widest text-white text-base font-medium capitalize"
             >
-              {{ site.callToAction | default: "Let's Go" }}
+              {{ site.callToAction | default: "Launch" }}
             </span>
             {% include githubIcon.html variant="#ffffff" %}
           </button>
@@ -430,9 +430,9 @@
       integrity="sha384-MWfCL6g1OTGsbSwfuMHc8+8J2u71/LA8dzlIN3ycajckxuZZmF+DNjdm7O6H3PSq"
     ></script>
     <script type="text/javascript">
-     const title = document.getElementById('project-title')
-     title.innerText(`${site.title.replace('.vin', '')}`)
-
+      const title = document.getElementById("project-title");
+      title.innerText(`${site.data.github.project_title.replace(".vin", "")}`);
+      
       function generateVinLink() {
         var x = document.getElementById("vin");
         var defaultVal = x.defaultValue;
