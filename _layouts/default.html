@@ -346,7 +346,7 @@
                 {% for item in site.data.apis.vins %} {% if item.status ==
                 "active" %}
                 <option value="{{ item.url | default: site.title }}" class="lowercase">
-                  {{ item.title | default: site.title }}
+                  {{ item.title | site.title }}
                 </option>
                 {% endif %} {% endfor %}
               </select>
