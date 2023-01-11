@@ -1,0 +1,156 @@
+@font-face {
+  font-family: Consolas, Menlo, Courier, monospace;
+  src: local(''), url('/fonts/CONSOLA.TTF') format('ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Consolas, Menlo, Courier, monospace;
+  src: local(''), url('/fonts/CONSOLAB.TTF') format('ttf');
+  font-weight: bold;
+  font-style: normal;
+}
+
+.token.property {
+  color: #80cac3;
+}
+.token.string {
+  color: #c591e8;
+}
+pre.highlight.language-json {
+  background-color: #0e0e19;
+  font-family: Consolas, Menlo, Courier, monospace;
+}
+html {
+  overflow-wrap: break-word;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+pre,
+code {
+  height: auto;
+  max-height: 500px;
+  padding-bottom: 22.5px;
+}
+h1 {
+  color: #060611;
+  font-family: "Montserrat";
+  font-weight: 700 !important;
+  font-size: 40px;
+  line-height: 40px;
+  text-transform: capitalize;
+}
+h1 > a {
+  color: #060611;
+  font-family: "Montserrat";
+  font-weight: 700 !important;
+  font-size: 40px;
+  line-height: 40px;
+  text-transform: capitalize;
+}
+h2 {
+  color: #231323;
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 24px;
+}
+h2 > a {
+  color: #231323;
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 400 !important;
+  font-size: 32px;
+  line-height: 24px;
+}
+h3 > a {
+  color: #060611;
+  font-family: Montserrat;
+  font-weight: 500 !important;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 32px;
+}
+p {
+  color: #4d4e58;
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.7rem;
+  margin-bottom: 4px;
+}
+ul {
+  padding-left: -10px;
+  padding: 0;
+  list-style: none;
+  position: relative;
+  margin-top: 0px;
+  /* Setup the counter. */
+}
+ul > li::before {
+  content: "";
+  /* Use the counter number as content. */
+  background-color: #060611;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 6px;
+  height: 6px;
+  padding: 2px;
+  position: absolute;
+  left: 0;
+  margin-left: 8px;
+  margin-top: 10px;
+}
+ol {
+  list-style-type: none;
+  padding-left: -10px;
+  padding: 0;
+  /* Setup the counter. */
+  counter-reset: list;
+}
+ol > li::before {
+  list-style: none;
+  /* Advance the number. */
+  counter-increment: list;
+  /* Use the counter number as content. */
+  content: counter(list);
+  color: #4d4e58;
+  background-color: rgb(243 244 246);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 24px;
+  margin-right: 8px;
+}
+ol > li {
+  padding-left: -6px;
+  display: flex;
+  align-items: center;
+  margin: 0px 0px 16px -31px;
+  padding: 0;
+}
+li {
+  color: #4d4e58;
+  font-family: IBM Plex Sans;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+a {
+  margin: 0 !important;
+  padding: 0;
+}
+a:hover {
+  text-decoration: underline;
+}
