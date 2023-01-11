@@ -1,5 +1,7 @@
 # PAGE.VIN
 
+{{ site | jsonify }}
+
 ```json
 {
   "core": {
