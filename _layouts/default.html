@@ -4,13 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{ site.title | 'Vehicle data by VIN' }}</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
     <script>
       tailwind.config = {
         theme: {
           extend: {
             colors: {
-              theme: tailwind.colors.indigo,
               DRIVLY_GREEN: "#00CAB9",
             },
             fontFamily: {
@@ -25,8 +24,8 @@
                     color: "#060611",
                     fontFamily: "Montserrat",
                     fontWeight: "bold !important",
-                    fontSize: ["40px"],
-                    lineHeight: ["40px"],
+                    fontSize: ["64px"],
+                    lineHeight: ["92px"],
                   },
                   h2: {
                     color: "#231323",
@@ -281,9 +280,9 @@
           href="{{ site.gettingStarted | default: '/login' }}"
           target="_blank"
           referrerpolicy="no-referrer"
-          class="ml-8 whitespace-nowrap inline-flex items-center justify-between px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gray-800 hover:bg-gray-600 gap-x-3"
+          class="ml-8 whitespace-nowrap inline-flex items-center justify-between px-4 py-2 font-IBM text-base font-medium text-[#060611]/50 gap-x-3"
         >
-          Get Started {% include githubIcon.html variant="currentColor" %}
+          Get Started {% include githubIcon.html variant="rgba(6, 6, 17, 0.5)" %}
         </a>
       </div>
     </nav>
@@ -343,12 +342,12 @@
                 id="tool"
                 class="border-transparent focus:border-transparent focus:ring-0 bg-transparent text-[#f8f8f8] font-IBM text-base sm:text-lg leading-[110%] py-0"
               >
-                {% for item in site.data.apis.vins %} {% if item.status ==
+                <!-- {% for item in site.data.apis.vins %} {% if item.status ==
                 "active" %}
                 <option value="{{ item.url | default: site.title }}" class="lowercase">
                   {{ item.title | site.title }}
                 </option>
-                {% endif %} {% endfor %}
+                {% endif %} {% endfor %} -->
               </select>
             </div>
           </div>
@@ -421,16 +420,23 @@
       // DOM Code
       var vinSites = [
         { title: "build.vin", url: "https://build.vin", status: "active" },
-
         { title: "buy.vin", url: "https://buy.vin", status: "active" },
         { title: "specs.vin", url: "https://specs.vin", status: "active" },
         { title: "ins.vin", url: "https://ins.vin", status: "inactive" },
-        {
-          title: "wholesale.vin",
-          url: "https://wholesale.vin",
-          status: "inactive",
-        },
+        { title: "wholesale.vin", url: "https://wholesale.vin", status: "inactive" },
       ];
+
+      const select = document.getElementById("tool");
+      const options = vinSites.map((site) => {
+        const option = document.createElement("option");
+        option.value = site.url;
+        option.text = site.title;
+        option.classList.add("lowercase");
+        if (site.status === "active") {
+          option.selected = true;
+        }
+        return option;
+      });
       function generateVinLink() {
         var x = document.getElementById("vin");
         var defaultVal = x.defaultValue;
