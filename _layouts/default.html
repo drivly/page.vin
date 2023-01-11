@@ -345,7 +345,9 @@
               >
                 {% for item in site.data.apis.vins %} {% if item.status ==
                 "active" %}
-                <option value="{{ item.url }}">{{ item.title }}</option>
+                <option value="{{ item.url | default: site.title }}" class="lowercase">
+                  {{ item.title | default: site.title }}
+                </option>
                 {% endif %} {% endfor %}
               </select>
             </div>
@@ -356,7 +358,7 @@
             class="group flex space-x-2 sm:w-fit justify-center items-center shadow-lg rounded-[4px] sm:rounded-r-[4px] border border-transparent bg-DRIVLY_GREEN px-3 py-3 text-lg shadow-sm focus:outline-none m-1 mt-2 hover:bg-opacity-95 focus:ring-0"
           >
             <span
-              class="group-hover:brightness-150 tracking-widest text-white text-base font-medium"
+              class="group-hover:brightness-150 tracking-widest text-white text-base font-medium capitalize"
             >
               {{ site.callToAction | default: "Let's Go" }}
             </span>
@@ -417,6 +419,18 @@
     ></script>
     <script type="text/javascript">
       // DOM Code
+      var vinSites = [
+        { title: "build.vin", url: "https://build.vin", status: "active" },
+
+        { title: "buy.vin", url: "https://buy.vin", status: "active" },
+        { title: "specs.vin", url: "https://specs.vin", status: "active" },
+        { title: "ins.vin", url: "https://ins.vin", status: "inactive" },
+        {
+          title: "wholesale.vin",
+          url: "https://wholesale.vin",
+          status: "inactive",
+        },
+      ];
       function generateVinLink() {
         var x = document.getElementById("vin");
         var defaultVal = x.defaultValue;
@@ -438,14 +452,14 @@
         ".language-json.highlighter-rouge"
       );
       const codeHeader = `
-        <div
-              class="flex items-center justify-between border-b-4 bg-[#01111D] border-[#122D42] z-50 rounded-t-[4px] h-[47px] -mb-[27px] z-40 mt-8"
-            >
-              <h3 class="p-4 px-6 m-0 flex-1 uppercase text-DRIVLY_GREEN text-sm">
-                JSON
-              </h3>
-            </div>
-        `;
+              <div
+                    class="flex items-center justify-between border-b-4 bg-[#01111D] border-[#122D42] z-50 rounded-t-[4px] h-[47px] -mb-[27px] z-40 mt-8"
+                  >
+                    <h3 class="p-4 px-6 m-0 flex-1 uppercase text-DRIVLY_GREEN text-sm">
+                      JSON
+                    </h3>
+                  </div>
+              `;
 
       codeWindow.insertAdjacentHTML("afterbegin", codeHeader);
     </script>
