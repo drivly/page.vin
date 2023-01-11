@@ -265,13 +265,24 @@
       {{ site.data | jsonify }}
     </script>
   </head>
-  <body class="min-h-screen bg-white" data-instant-allow-external-links>
-    <nav class="flex justify-between max-w-6xl mx-auto p-4">
+  <body
+    class="min-h-screen bg-white relative"
+    data-instant-allow-external-links
+    style="
+      background-image: url('/assets/Rectangle.svg');
+      background-repeat: no-repeat;
+      background-position: right;
+    "
+  >
+    <nav class="flex justify-between max-w-6xl mx-auto p-4 z-50">
       <div class="flex justify-start items-center flex-1">
         <a href="#">
           <span class="sr-only">Docs</span>
-          <p class="w-auto text-4xl sm:text-3xl text-bold">
-            {{ site.icon | default: '🚀' }}
+          <p id="project-title"
+            class="w-auto text-4xl sm:text-3xl text-bold flex flex-row items-center"
+          >
+            {{ site.title | default: '🚀' }}
+            <img src="/assets/VIN.svg" alt=".VIN" />
           </p>
         </a>
       </div>
@@ -282,7 +293,8 @@
           referrerpolicy="no-referrer"
           class="ml-8 whitespace-nowrap inline-flex items-center justify-between px-4 py-2 font-IBM text-base font-medium text-[#060611]/50 gap-x-3"
         >
-          Get Started {% include githubIcon.html variant="rgba(6, 6, 17, 0.5)" %}
+          Get Started {% include githubIcon.html variant="rgba(6, 6, 17, 0.5)"
+          %}
         </a>
       </div>
     </nav>
@@ -417,26 +429,9 @@
       integrity="sha384-MWfCL6g1OTGsbSwfuMHc8+8J2u71/LA8dzlIN3ycajckxuZZmF+DNjdm7O6H3PSq"
     ></script>
     <script type="text/javascript">
-      // DOM Code
-      var vinSites = [
-        { title: "build.vin", url: "https://build.vin", status: "active" },
-        { title: "buy.vin", url: "https://buy.vin", status: "active" },
-        { title: "specs.vin", url: "https://specs.vin", status: "active" },
-        { title: "ins.vin", url: "https://ins.vin", status: "inactive" },
-        { title: "wholesale.vin", url: "https://wholesale.vin", status: "inactive" },
-      ];
+     const title = document.getElementById('project-title')
+     title.innerText(`${site.title.replace('.vin', '')}`)
 
-      const select = document.getElementById("tool");
-      const options = vinSites.map((site) => {
-        const option = document.createElement("option");
-        option.value = site.url;
-        option.text = site.title;
-        option.classList.add("lowercase");
-        if (site.status === "active") {
-          option.selected = true;
-        }
-        return option;
-      });
       function generateVinLink() {
         var x = document.getElementById("vin");
         var defaultVal = x.defaultValue;
