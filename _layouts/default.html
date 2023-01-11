@@ -294,7 +294,7 @@
         <h3
           class="text-xs font-bold tracking-[.5em] text-[#0C7D74] sm:text-sm md:text-lg"
         >
-          {{ site.badge | 'LIMITED BETA RELEASE' }}
+          {{ site.badge | default: 'LIMITED BETA RELEASE' }}
         </h3>
         <h1
           class="mt-3 text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl md:text-6xl"
@@ -358,7 +358,7 @@
             <span
               class="group-hover:brightness-150 tracking-widest text-white text-base font-medium"
             >
-              {{ site.callToAction | Let's Go}}
+              {{ site.callToAction | default: "Let's Go" }}
             </span>
             {% include githubIcon.html variant="#ffffff" %}
           </button>
