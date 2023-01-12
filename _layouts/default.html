@@ -381,8 +381,8 @@
       </div>
 
       <div class="col-start-6 col-span-5 prose mx-auto w-full">
-        {% highlight ruby linenos %} def show {% if site.data.example %} {{
-        site.data.example | jsonify }} {% else %} {{ content }} {% endif %} end
+        {% highlight ruby linenos %} {% if site.data.example %} {{
+        site.data.example | jsonify }} {% else %} {{ content }} {% endif %} 
         {% endhighlight %}
       </div>
     </div>
