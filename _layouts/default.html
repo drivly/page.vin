@@ -448,7 +448,7 @@
      `;
             
      var code = document.getElementById("code");
-     var codeText = code.innerText;
+     var codeText = code.textContent;
      var json = JSON.stringify(JSON.parse(codeText), null, 2);
      var newCode = `
      <pre class="highlight language-json">  
@@ -457,7 +457,7 @@
         </code>
       </pre>
       `;
-      codeText = ''
+      codeText.textContent = ''
      code.insertAdjacentHTML("afterbegin", newCode);
      
      console.log(json)
