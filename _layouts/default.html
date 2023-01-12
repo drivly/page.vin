@@ -192,7 +192,8 @@
                 id="projectTitle"
                 class="bg-[#F8FAFD] flex items-center justify-center px-[18px] border border-[#DBE2E7] font-medium h-[50px] rounded-l-[5px] text-black text-base"
               >
-                {{ site.github.project_title | default: 'random.vin'}}
+                {{ site.github.project_title | append: "/" | default:
+                'random.vin'}}
               </span>
               <input
                 type="text"
@@ -220,8 +221,14 @@
       </div>
 
       <div class="col-start-6 col-span-5 prose mx-auto w-full">
-        {% if site.data.example %} {{ site.data.example | jsonify }} {% else %}
-        {{ content }} {% endif %}
+        <div class="language-json highlighter-rouge">
+          <div class="highlight">
+            <pre class="highlight language-json">
+              {% if site.data.example %} {{ site.data.example | jsonify }} {% else %}
+              {{ content }} {% endif %}
+            </pre>
+          </div>
+        </div>
       </div>
     </div>
 
