@@ -457,7 +457,8 @@
         </code>
       </pre>
       `;
-    document.getElementById('code').lastChild = null
+     code.lastChild = ''
+    
      code.insertAdjacentHTML("afterbegin", newCode);
      
      console.log(json)
