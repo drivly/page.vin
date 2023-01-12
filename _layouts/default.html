@@ -224,8 +224,11 @@
         <div class="language-json highlighter-rouge">
           <div class="highlight">
             <pre class="highlight language-json">
-              {% if site.data.example %} {{ site.data.example | jsonify }} {% else %}
-              {{ content }} {% endif %}
+              <code>
+                {% if site.data.example %} {{ site.data.example | jsonify }} {% else %}
+                {{ content }} {% endif %}
+
+              </code>
             </pre>
           </div>
         </div>
