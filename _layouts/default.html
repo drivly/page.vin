@@ -256,6 +256,10 @@
     />
     <link
       rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/plugins/line-highlight/prism-line-highlight.min.css"
+    />
+    <link
+      rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.css"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -376,11 +380,9 @@
         </div>
       </div>
 
-      <div class="col-start-6 col-span-5 prose mx-auto w-full">
-        ```json
-        {% if site.data.example %} {{ site.data.example }} {% else %} {{ content
-        }} {% endif %}
-        ```
+      <div class="col-start-6 col-span-5 prose mx-auto w-full line-numbers">
+        {% if site.data.example %} {{ site.data.example | pretty_json }} {% else
+        %} {{ content }} {% endif %}
       </div>
     </div>
 
@@ -409,6 +411,10 @@
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autolinker/prism-autolinker.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/plugins/line-numbers/prism-line-numbers.min.js"
+    ></script>
     <script>
       var elements = document.querySelectorAll(
         ".highlighter-rouge:not(.language-mermaid) pre.highlight"
