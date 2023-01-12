@@ -450,12 +450,14 @@
      var code = document.getElementById("code");
      var codeText = code.innerText;
      var json = JSON.stringify(JSON.parse(codeText), null, 2);
-     var newCode = `<pre class="highlight language-json">  
-              <code class="language-json">
-              ${json}
-              </code>
-            </pre>
-            `;
+     var newCode = `
+     <pre class="highlight language-json">  
+        <code class="language-json">
+          ${json}
+        </code>
+      </pre>
+      `;
+      codeText = ''
      code.insertAdjacentHTML("afterbegin", newCode);
      
      console.log(json)
