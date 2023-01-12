@@ -381,7 +381,7 @@
       </div>
       <div class="col-start-6 col-span-5 prose mx-auto w-full">
         <div class="language-json highlighter-rouge w-full" id="code">
-          {{ site.data.example | jsonify | escape }}
+          {{ content }}
         </div>
       </div>
 
@@ -448,7 +448,7 @@
      `;
             
      var code = document.getElementById("code");
-     var codeText = code.textContent;
+     var codeText = code.innerText;
      var json = JSON.stringify(JSON.parse(codeText), null, 2);
      var newCode = `
      <pre class="highlight language-json">  
@@ -457,8 +457,6 @@
         </code>
       </pre>
       `;
-     code.lastChild = ''
-    
      code.insertAdjacentHTML("afterbegin", newCode);
      
      console.log(json)
