@@ -381,8 +381,12 @@
       </div>
 
       <div class="col-start-6 col-span-5 prose mx-auto w-full">
-        {% if site.data.example %} {{ site.data.example }} {% else
-        %} {{ content }} {% endif %}
+        <pre>
+          <code class="language-json line-numbers">
+          {% if site.data.example %} {{ site.data.example | jsonify }} {% else
+          %} {{ content }} {% endif %}
+          </code>
+        </pre>
       </div>
     </div>
 
