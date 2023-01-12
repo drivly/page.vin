@@ -125,7 +125,7 @@
     </script>
   </head>
   <body
-    class="min-h-screen bg-white relative flex flex-col xl:grid xl:grid-cols-12 gap-x-4 px-4 xl:px-16"
+    class="min-h-screen bg-white relative flex flex-col justify-center xl:grid xl:grid-cols-12 gap-x-4 px-4 xl:px-16"
     data-instant-allow-external-links
     style="
       background-image: url('/assets/Rectangle.svg');
@@ -160,116 +160,120 @@
         </a>
       </div>
     </nav>
-    <div class="col-start-2 col-span-4 max-w-lg lg:w-full mx-auto">
-      <h1
-        class="mt-3 text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl md:text-6xl"
-      >
-        {{ site.title | "OEM vehicle information tool <wbr />you'll enjoy using"
-        }}
-      </h1>
-      <p
-        class="mx-auto mt-3 max-w-md text-base text-zinc-500 sm:text-lg md:mt-5 md:max-w-3xl md:text-xl"
-      >
-        {{ site.description | "VIN is your source for all OEM information about
-        a vehicle." }}
-      </p>
-      <div
-        class="flex flex-col sm:flex-row border-gray-200 border rounded-[5px] bg-gray-800 mt-4 p-1 pt-0"
-      >
-        <div class="flex flex-1">
-          <div class="w-full flex flex-col items-start pt-2.5 flex-1 space-y-1">
-            <label
-              for="api.vin"
-              class="text-[#C3C3C3] pl-3 font-semibold text-sm font-Montserrat"
-              >Vehicle VIN</label
-            >
-            <input
-              type="text"
-              name="api.vin"
-              id="vin"
-              value="SCFRMFAW3LGL09248"
-              placeholder="Enter a VIN..."
-              class="w-full py-0 outline-none border-none focus:ring-0 bg-transparent placeholder:text-gray-400 text-[#f8f8f8] text-base sm:text-lg tracking-wide font-IBM"
-            />
-          </div>
-
-          <div
-            class="text-left pt-2.5 w-fit flex flex-col flex-shrink-0 space-y-1 sm:space-y-0 sm:pb-2"
-          >
-            <label
-              class="text-[#C3C3C3] ml-3 pb-0.5 font-semibold text-sm font-Montserrat"
-              for="tool"
-              >Select Tool</label
-            >
-            <select
-              name="tool"
-              id="tool"
-              class="border-transparent focus:border-transparent focus:ring-0 bg-transparent text-[#f8f8f8] font-IBM text-base sm:text-lg leading-[110%] py-0"
-            >
-              <!-- {% for item in site.data.apis.vins %} {% if item.status ==
-              "active" %}
-              <option value="{{ item.url | default: site.title }}" class="lowercase">
-                {{ item.title | site.title }}
-              </option>
-              {% endif %} {% endfor %} -->
-            </select>
-          </div>
-        </div>
-        <button
-          type="submit"
-          id="toolButton"
-          class="group flex space-x-2 sm:w-fit justify-center items-center shadow-lg rounded-[4px] sm:rounded-r-[4px] border border-transparent bg-DRIVLY_GREEN px-3 py-3 text-lg shadow-sm focus:outline-none m-1 mt-2 hover:bg-opacity-95 focus:ring-0"
+    <div class="flex flex-col xl:flex-row w-full items-center xl:col-span-12 gap-8">
+      <div class="col-start-2 col-span-4 max-w-lg lg:w-full mx-auto">
+        <h1
+          class="mt-3 text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl md:text-6xl"
         >
-          <span
-            class="group-hover:brightness-150 tracking-widest text-white text-base font-medium capitalize"
-          >
-            {{ site.callToAction | default: "Launch" }}
-          </span>
-          {% include githubIcon.html variant="#ffffff" %}
-        </button>
-      </div>
-    </div>
+          {{ site.title | "OEM vehicle information tool <wbr />you'll enjoy
+          using" }}
+        </h1>
+        <p
+          class="mx-auto mt-3 max-w-md text-base text-zinc-500 sm:text-lg md:mt-5 md:max-w-3xl md:text-xl"
+        >
+          {{ site.description | "VIN is your source for all OEM information
+          about a vehicle." }}
+        </p>
+        <div
+          class="flex flex-col sm:flex-row border-gray-200 border rounded-[5px] bg-gray-800 mt-4 p-1 pt-0"
+        >
+          <div class="flex flex-1">
+            <div
+              class="w-full flex flex-col items-start pt-2.5 flex-1 space-y-1"
+            >
+              <label
+                for="api.vin"
+                class="text-[#C3C3C3] pl-3 font-semibold text-sm font-Montserrat"
+                >Vehicle VIN</label
+              >
+              <input
+                type="text"
+                name="api.vin"
+                id="vin"
+                value="SCFRMFAW3LGL09248"
+                placeholder="Enter a VIN..."
+                class="w-full py-0 outline-none border-none focus:ring-0 bg-transparent placeholder:text-gray-400 text-[#f8f8f8] text-base sm:text-lg tracking-wide font-IBM"
+              />
+            </div>
 
-    <div class="col-start-7 col-span-5 prose mx-auto w-full">
-      <div class="language-json highlighter-rouge">
-        <div class="highlight">
-          <pre
-            class="highlight language-json"
-          ><span class="token punctuation">{</span>
-          <span class="token property">"core"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-            <span class="token property">"ctx"</span><span class="token operator">:</span> <span class="token string">"⚙️ Vehicle Context"</span><span class="token punctuation">,</span>
-            <span class="token property">"apis"</span><span class="token operator">:</span> <span class="token string">"🚀 Vehicle APIs"</span>
-          <span class="token punctuation">}</span><span class="token punctuation">,</span>
-          <span class="token property">"data"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-            <span class="token property">"build"</span><span class="token operator">:</span> <span class="token string">"🏗️ OEM Build Data"</span><span class="token punctuation">,</span>
-            <span class="token property">"vhr"</span><span class="token operator">:</span> <span class="token string">"✅ Vehicle History Report"</span><span class="token punctuation">,</span>
-            <span class="token property">"ids"</span><span class="token operator">:</span> <span class="token string">"📖 Lookup External IDs"</span><span class="token punctuation">,</span>
-            <span class="token property">"recall"</span><span class="token operator">:</span> <span class="token string">"⚠️ Active Recalls"</span>
-          <span class="token punctuation">}</span><span class="token punctuation">,</span>
-          <span class="token property">"services"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-            <span class="token property">"fi"</span><span class="token operator">:</span> <span class="token string">"💸 Finance &amp; Insurance"</span><span class="token punctuation">,</span>
-            <span class="token property">"ppi"</span><span class="token operator">:</span> <span class="token string">"👍 Pre-Purchase Inspection"</span><span class="token punctuation">,</span>
-            <span class="token property">"repair"</span><span class="token operator">:</span> <span class="token string">"🛠 Maintenance &amp; Repairs"</span><span class="token punctuation">,</span>
-            <span class="token property">"recon"</span><span class="token operator">:</span> <span class="token string">"⚙️ Reconditioning"</span><span class="token punctuation">,</span>
-            <span class="token property">"detail"</span><span class="token operator">:</span> <span class="token string">"✨ Wash &amp; Detail"</span>
-          <span class="token punctuation">}</span><span class="token punctuation">,</span>
-          <span class="token property">"service"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-            <span class="token property">"recall"</span><span class="token operator">:</span> <span class="token string">"⚠️ Recall repairs"</span>
-          <span class="token punctuation">}</span><span class="token punctuation">,</span>
-          <span class="token property">"fi"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-            <span class="token property">"fin"</span><span class="token operator">:</span> <span class="token string">"⚡️ Financing"</span><span class="token punctuation">,</span>
-            <span class="token property">"pre.approval"</span><span class="token operator">:</span> <span class="token string">"🎉 Finance Pre-Approval"</span><span class="token punctuation">,</span>
-            <span class="token property">"apply"</span><span class="token operator">:</span> <span class="token string">"📝 Apply for Financing"</span><span class="token punctuation">,</span>
-            <span class="token property">"esign"</span><span class="token operator">:</span> <span class="token string">"✍️ Finance Pre-Approval"</span><span class="token punctuation">,</span>
-            <span class="token property">"identity"</span><span class="token operator">:</span> <span class="token string">"🪪 Identity Verification"</span><span class="token punctuation">,</span>
-            <span class="token property">"apr"</span><span class="token operator">:</span> <span class="token string">"📈 Interest Rates"</span>
-          <span class="token punctuation">}</span><span class="token punctuation">,</span>
-          <span class="token property">"logistics"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-            <span class="token property">"track"</span><span class="token operator">:</span> <span class="token string">"📆 Order Tracking"</span><span class="token punctuation">,</span>
-            <span class="token property">"ship"</span><span class="token operator">:</span> <span class="token string">"🚛 Transport &amp; Delivery"</span>
+            <div
+              class="text-left pt-2.5 w-fit flex flex-col flex-shrink-0 space-y-1 sm:space-y-0 sm:pb-2"
+            >
+              <label
+                class="text-[#C3C3C3] ml-3 pb-0.5 font-semibold text-sm font-Montserrat"
+                for="tool"
+                >Select Tool</label
+              >
+              <select
+                name="tool"
+                id="tool"
+                class="border-transparent focus:border-transparent focus:ring-0 bg-transparent text-[#f8f8f8] font-IBM text-base sm:text-lg leading-[110%] py-0"
+              >
+                <!-- {% for item in site.data.apis.vins %} {% if item.status ==
+                "active" %}
+                <option value="{{ item.url | default: site.title }}" class="lowercase">
+                  {{ item.title | site.title }}
+                </option>
+                {% endif %} {% endfor %} -->
+              </select>
+            </div>
+          </div>
+          <button
+            type="submit"
+            id="toolButton"
+            class="group flex space-x-2 sm:w-fit justify-center items-center shadow-lg rounded-[4px] sm:rounded-r-[4px] border border-transparent bg-DRIVLY_GREEN px-3 py-3 text-lg shadow-sm focus:outline-none m-1 mt-2 hover:bg-opacity-95 focus:ring-0"
+          >
+            <span
+              class="group-hover:brightness-150 tracking-widest text-white text-base font-medium capitalize"
+            >
+              {{ site.callToAction | default: "Launch" }}
+            </span>
+            {% include githubIcon.html variant="#ffffff" %}
+          </button>
+        </div>
+      </div>
+
+      <div class="col-start-7 col-span-5 prose mx-auto w-full">
+        <div class="language-json highlighter-rouge">
+          <div class="highlight">
+            <pre
+              class="highlight language-json"
+            ><span class="token punctuation">{</span>
+            <span class="token property">"core"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+              <span class="token property">"ctx"</span><span class="token operator">:</span> <span class="token string">"⚙️ Vehicle Context"</span><span class="token punctuation">,</span>
+              <span class="token property">"apis"</span><span class="token operator">:</span> <span class="token string">"🚀 Vehicle APIs"</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token property">"data"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+              <span class="token property">"build"</span><span class="token operator">:</span> <span class="token string">"🏗️ OEM Build Data"</span><span class="token punctuation">,</span>
+              <span class="token property">"vhr"</span><span class="token operator">:</span> <span class="token string">"✅ Vehicle History Report"</span><span class="token punctuation">,</span>
+              <span class="token property">"ids"</span><span class="token operator">:</span> <span class="token string">"📖 Lookup External IDs"</span><span class="token punctuation">,</span>
+              <span class="token property">"recall"</span><span class="token operator">:</span> <span class="token string">"⚠️ Active Recalls"</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token property">"services"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+              <span class="token property">"fi"</span><span class="token operator">:</span> <span class="token string">"💸 Finance &amp; Insurance"</span><span class="token punctuation">,</span>
+              <span class="token property">"ppi"</span><span class="token operator">:</span> <span class="token string">"👍 Pre-Purchase Inspection"</span><span class="token punctuation">,</span>
+              <span class="token property">"repair"</span><span class="token operator">:</span> <span class="token string">"🛠 Maintenance &amp; Repairs"</span><span class="token punctuation">,</span>
+              <span class="token property">"recon"</span><span class="token operator">:</span> <span class="token string">"⚙️ Reconditioning"</span><span class="token punctuation">,</span>
+              <span class="token property">"detail"</span><span class="token operator">:</span> <span class="token string">"✨ Wash &amp; Detail"</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token property">"service"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+              <span class="token property">"recall"</span><span class="token operator">:</span> <span class="token string">"⚠️ Recall repairs"</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token property">"fi"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+              <span class="token property">"fin"</span><span class="token operator">:</span> <span class="token string">"⚡️ Financing"</span><span class="token punctuation">,</span>
+              <span class="token property">"pre.approval"</span><span class="token operator">:</span> <span class="token string">"🎉 Finance Pre-Approval"</span><span class="token punctuation">,</span>
+              <span class="token property">"apply"</span><span class="token operator">:</span> <span class="token string">"📝 Apply for Financing"</span><span class="token punctuation">,</span>
+              <span class="token property">"esign"</span><span class="token operator">:</span> <span class="token string">"✍️ Finance Pre-Approval"</span><span class="token punctuation">,</span>
+              <span class="token property">"identity"</span><span class="token operator">:</span> <span class="token string">"🪪 Identity Verification"</span><span class="token punctuation">,</span>
+              <span class="token property">"apr"</span><span class="token operator">:</span> <span class="token string">"📈 Interest Rates"</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token property">"logistics"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+              <span class="token property">"track"</span><span class="token operator">:</span> <span class="token string">"📆 Order Tracking"</span><span class="token punctuation">,</span>
+              <span class="token property">"ship"</span><span class="token operator">:</span> <span class="token string">"🚛 Transport &amp; Delivery"</span>
+            <span class="token punctuation">}</span>
           <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-        </pre>
+          </pre>
+          </div>
         </div>
       </div>
     </div>
