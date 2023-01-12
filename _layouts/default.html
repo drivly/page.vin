@@ -381,7 +381,7 @@
       </div>
 
       <div class="col-start-6 col-span-5 prose mx-auto w-full">
-        {% if site.data.example %} {{ site.data.example | markdownify }} {% else
+        {% if site.data.example %} {{ site.data.example | jsonify }} {% else
         %} {{ content }} {% endif %}
       </div>
     </div>
