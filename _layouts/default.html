@@ -189,7 +189,7 @@
               class="mt-[21px] flex items-center font-Consolas drop-shadow-[0_6px_25px_rgba(0,0,0,0.05)]"
             >
               <span
-                id="project-title"
+                id="projectTitle"
                 class="bg-[#F8FAFD] flex items-center justify-center px-[18px] border border-[#DBE2E7] font-medium h-[50px] rounded-l-[5px] text-black text-base"
               >
                 {{ site.github.project_title | default: 'random.vin'}}
@@ -268,12 +268,11 @@
     <script type="text/javascript">
       function generateVinLink() {
         var x = document.getElementById("vin");
+        let projectTitle = document.getElementById("project-title").textContent;
         var defaultVal = x.defaultValue;
         var currentVal = x.value;
         const vinValue = currentVal ? currentVal : defaultVal;
-        const selection = document.getElementById("tool");
-        const tool = selection.value;
-        const newLink = `${tool}/${vinValue}`;
+        const newLink = `${projectTitle}/${vinValue}`;
 
         if (newLink) {
           window.open(newLink);
