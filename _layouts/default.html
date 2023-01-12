@@ -220,7 +220,8 @@
       </div>
 
       <div class="col-start-6 col-span-5 prose mx-auto w-full">
-        {{ site.data.example | jsonify | default: content }}
+        {% if site.data.example %} {{ site.data.example | jsonify }} {% else %}
+        {{ content }} {% endif %}
       </div>
     </div>
 
