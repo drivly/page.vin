@@ -177,10 +177,10 @@
           about a vehicle." }}
         </p>
         <div class="mt-11">
-          <div class="text-left">
+          <div class="text-left drop-shadow-[0_6px_25px_rgba(0,0,0,0.05)]">
             <label
               for="api.vin"
-              class="text-[#58667E] pb-[21px] font-medium text-sm font-Montserrat whitespace-nowrap"
+              class="text-[#58667E] pb-[21px] font-medium text-sm tracking-[0.02em] font-Montserrat whitespace-nowrap"
               >Enter VIN</label
             >
             <div class="mt-[21px] flex items-center font-Consolas">
@@ -188,7 +188,7 @@
                 id="project-title"
                 class="bg-[#F8FAFD] py-4 px-[18px] border border-[#DBE2E7] font-medium h-[50px] rounded-l-[5px] text-black"
               >
-                build.vin/
+                {{ site.github.project_title | default: "oops.vin"}}
               </span>
               <input
                 type="text"
@@ -196,17 +196,17 @@
                 id="vin"
                 value="SCFRMFAW3LGL09248"
                 placeholder="1FMEE5DP3MLA96217"
-                class="w-full h-[50px] outline-none border-[#DBE2E7] focus:ring-0 bg-transparent placeholder:text-gray-500 text-[#151515] text-base sm:text-lg tracking-wide rounded-r-[5px]"
+                class="w-full h-[50px] outline-none border-[#DBE2E7] focus:ring-0 bg-transparent placeholder:text-gray-500 text-[#151515] text-base sm:text-lg rounded-r-[5px] tracking-[0.12em]"
               />
             </div>
           </div>
           <button
             type="submit"
             id="toolButton"
-            class="group flex w-full justify-center items-center rounded-[5px] sm:rounded-r-[4px] bg-DRIVLY_GREEN px-3 py-3 text-lg shadow-sm focus:outline-none hover:bg-opacity-95 focus:ring-0 mt-8 h-[52px]"
+            class="group flex w-full justify-center items-center rounded-[5px] sm:rounded-r-[4px] bg-DRIVLY_GREEN px-3 py-3 text-lg focus:outline-none hover:bg-opacity-95 focus:ring-0 mt-8 h-[52px]"
           >
             <span
-              class="group-hover:brightness-150 tracking-widest text-white text-base font-semibold capitalize font-Montserrat"
+              class="group-hover:brightness-150 tracking-widest text-white text-lg leading-[22px] font-semibold capitalize font-Montserrat"
             >
               {{ site.callToAction | default: "Launch" }}
             </span>
