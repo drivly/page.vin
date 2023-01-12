@@ -388,7 +388,7 @@
       <div
         class="col-start-6 col-span-5 prose mx-auto w-full language-json highlight highlighter-rouge"
       >
-        <pre class="highlight">
+        <pre class="highlight" id="codeBlock">
           <code class="language-json">
 {{ site.data.example | jsonify }}
           </code>
@@ -447,6 +447,11 @@
       integrity="sha384-MWfCL6g1OTGsbSwfuMHc8+8J2u71/LA8dzlIN3ycajckxuZZmF+DNjdm7O6H3PSq"
     ></script>
     <script type="text/javascript">
+      function prettyJson() {
+        var obj = JSON.parse(document.getElementById("codeBlock").innerText);
+        var pretty = JSON.stringify(obj, undefined, 4);
+        document.getElementById("codeBlock").innerText = pretty;
+      }
       function generateVinLink() {
         var x = document.getElementById("vin");
         let projectTitle = document.getElementById("project-title").textContent;
