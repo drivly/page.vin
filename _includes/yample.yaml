@@ -1,3 +1,4 @@
+{% highlight json %}
 core:
   ctx: "⚙️ Vehicle Context"
   apis: "\U0001F680 Vehicle APIs"
@@ -24,3 +25,4 @@ fi:
 logistics:
   track: "\U0001F4C6 Order Tracking"
   ship: "\U0001F69B Transport & Delivery"
+  {% endhighlight %}
