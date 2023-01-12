@@ -448,7 +448,7 @@
     ></script>
     <script type="text/javascript">
       var obj = JSON.parse(document.getElementById("codeBlock").innerText);
-      var pretty = JSON.stringify(obj, null, 2);
+      var pretty = JSON.stringify(JSON.parse(obj), null, 2);
       document.getElementById("codeBlock").innerText = pretty;
 
       function generateVinLink() {
