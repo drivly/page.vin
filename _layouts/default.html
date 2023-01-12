@@ -379,9 +379,15 @@
           </button>
         </div>
       </div>
-
-      <div class="col-start-6 col-span-5 prose mx-auto w-full">
-        {{ site.data.example | jsonify }}
+      <div class="col-start-6 col-span-5 prose mx-auto w-full highlight">
+          <div class="language-json highlighter-rouge w-full">
+          <pre class="highlight language-json" id="code">
+            <code class="language-json">
+              {{ site.data.example }}
+            </code>
+  
+          </pre>
+        </div>
       </div>
 
     <footer class="col-span-10 pt-[60px] w-full">
@@ -413,21 +419,10 @@
       type="text/javascript"
       src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/plugins/line-numbers/prism-line-numbers.min.js"
     ></script>
-    <script>
-      var elements = document.querySelectorAll(
-        ".highlighter-rouge:not(.language-mermaid) pre.highlight"
-      );
-
-      for (var element of elements) {
-        Prism.highlightElement(element, false);
-      }
-      Prism.plugins.autoloader.languages_path =
-        "https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/";
-    </script>
     <script
-      src="//instant.page/5.1.1"
-      type="module"
-      integrity="sha384-MWfCL6g1OTGsbSwfuMHc8+8J2u71/LA8dzlIN3ycajckxuZZmF+DNjdm7O6H3PSq"
+    src="//instant.page/5.1.1"
+    type="module"
+    integrity="sha384-MWfCL6g1OTGsbSwfuMHc8+8J2u71/LA8dzlIN3ycajckxuZZmF+DNjdm7O6H3PSq"
     ></script>
     <script type="text/javascript">
       function generateVinLink() {
@@ -437,27 +432,41 @@
         var currentVal = x.value;
         const vinValue = currentVal ? currentVal : defaultVal;
         const newLink = `${projectTitle}/${vinValue}`;
-
+        
         if (newLink) {
           window.open(newLink);
         }
       }
       document
-        .getElementById("toolButton")
-        .addEventListener("click", generateVinLink);
-
+      .getElementById("toolButton")
+      .addEventListener("click", generateVinLink);
+      
       const codeWindow = document.querySelector(
         ".language-json.highlighter-rouge"
-      );
+        );
       const codeHeader = `
-              <div class="flex items-center justify-end border-b-4 bg-[#01111D] border-[#122D42] z-50 rounded-t-[4px] h-[46px] -mb-[27px] z-40 mt-8">
-                <h3 class="p-4 px-6 m-0 uppercase text-[#5F7E97] text-sm">
-                  JSON
-                </h3>
-              </div>
-              `;
-
+      <div class="flex items-center justify-end border-b-4 bg-[#01111D] border-[#122D42] z-50 rounded-t-[4px] h-[46px] -mb-[27px] z-40 mt-8">
+        <h3 class="p-4 px-6 m-0 uppercase text-[#5F7E97] text-sm">
+          JSON
+        </h3>
+      </div>
+     `;
+            
+     var code = document.getElementById("code").innerText;
+     var json = JSON.stringify(JSON.parse(code), null, 2);
+     document.getElementById("code").textContent = json;
+     
+     console.log(json)
       codeWindow.insertAdjacentHTML("afterbegin", codeHeader);
+      var elements = document.querySelectorAll(
+        ".highlighter-rouge:not(.language-mermaid) pre.highlight"
+      );
+  
+      for (var element of elements) {
+        Prism.highlightElement(element, false);
+      }
+      Prism.plugins.autoloader.languages_path =
+        "https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/";
     </script>
   </body>
 </html>
