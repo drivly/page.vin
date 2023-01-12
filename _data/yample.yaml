@@ -1,0 +1,27 @@
+---
+core:
+  ctx: "⚙️ Vehicle Context"
+  apis: "\U0001F680 Vehicle APIs"
+data:
+  build: "\U0001F3D7️ OEM Build Data"
+  vhr: "✅ Vehicle History Report"
+  ids: "\U0001F4D6 Lookup External IDs"
+  recall: "⚠️ Active Recalls"
+services:
+  fi: "\U0001F4B8 Finance & Insurance"
+  ppi: "\U0001F44D Pre-Purchase Inspection"
+  repair: "\U0001F6E0 Maintenance & Repairs"
+  recon: "⚙️ Reconditioning"
+  detail: "✨ Wash & Detail"
+service:
+  recall: "⚠️ Recall repairs"
+fi:
+  fin: "⚡️ Financing"
+  pre.approval: "\U0001F389 Finance Pre-Approval"
+  apply: "\U0001F4DD Apply for Financing"
+  esign: "✍️ Finance Pre-Approval"
+  identity: "\U0001FAAA Identity Verification"
+  apr: "\U0001F4C8 Interest Rates"
+logistics:
+  track: "\U0001F4C6 Order Tracking"
+  ship: "\U0001F69B Transport & Delivery"

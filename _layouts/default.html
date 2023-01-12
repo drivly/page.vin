@@ -380,13 +380,20 @@
         </div>
       </div>
 
-      <div class="col-start-6 col-span-5 prose mx-auto w-full language-json highlight highlighter-rouge">
+      <div
+        class="col-start-6 col-span-5 prose mx-auto w-full language-json highlight highlighter-rouge"
+      >
         {{ content }}
       </div>
-      <div class="col-start-6 col-span-5 prose mx-auto w-full language-json highlight highlighter-rouge">
-        ```json
+      <div
+        class="col-start-6 col-span-5 prose mx-auto w-full language-json highlight highlighter-rouge"
+      >
         {{ site.data.example | jsonify }}
-        ```
+      </div>
+      <div
+        class="col-start-6 col-span-5 prose mx-auto w-full language-json highlight highlighter-rouge"
+      >
+        {{ site.data.yample | jsonify }}
       </div>
     </div>
 
@@ -421,22 +428,21 @@
     ></script>
     <script>
       var elements = document.querySelectorAll(
-      ".highlighter-rouge:not(.language-mermaid) pre.highlight"
-    );
+        ".highlighter-rouge:not(.language-mermaid) pre.highlight"
+      );
 
-    for (var element of elements) {
-      Prism.highlightElement(element, false);
-    }
-    Prism.plugins.autoloader.languages_path =
-      "https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/";
+      for (var element of elements) {
+        Prism.highlightElement(element, false);
+      }
+      Prism.plugins.autoloader.languages_path =
+        "https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/";
     </script>
     <script
-    src="//instant.page/5.1.1"
-    type="module"
-    integrity="sha384-MWfCL6g1OTGsbSwfuMHc8+8J2u71/LA8dzlIN3ycajckxuZZmF+DNjdm7O6H3PSq"
+      src="//instant.page/5.1.1"
+      type="module"
+      integrity="sha384-MWfCL6g1OTGsbSwfuMHc8+8J2u71/LA8dzlIN3ycajckxuZZmF+DNjdm7O6H3PSq"
     ></script>
     <script type="text/javascript">
-      
       function generateVinLink() {
         var x = document.getElementById("vin");
         let projectTitle = document.getElementById("project-title").textContent;
@@ -444,26 +450,26 @@
         var currentVal = x.value;
         const vinValue = currentVal ? currentVal : defaultVal;
         const newLink = `${projectTitle}/${vinValue}`;
-        
+
         if (newLink) {
           window.open(newLink);
         }
       }
       document
-      .getElementById("toolButton")
-      .addEventListener("click", generateVinLink);
-      
+        .getElementById("toolButton")
+        .addEventListener("click", generateVinLink);
+
       const codeWindow = document.querySelector(
         ".language-json.highlighter-rouge"
-        );
-        const codeHeader = `
+      );
+      const codeHeader = `
         <div class="flex items-center justify-end border-b-4 bg-[#01111D] border-[#122D42] z-50 rounded-t-[4px] h-[46px] -mb-[27px] z-40 mt-8">
           <h3 class="p-4 px-6 m-0 uppercase text-[#5F7E97] text-sm">
             JSON
             </h3>
             </div>
             `;
-            
+
       codeWindow.insertAdjacentHTML("afterbegin", codeHeader);
       var code = document.getElementById("code").innerText;
       code.innerHTML = JSON.stringify(JSON.parse(code), null, 2);
