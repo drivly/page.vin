@@ -385,17 +385,20 @@
       >
         {{ content }}
       </div>
-      <div
+      <!-- <div
         class="col-start-6 col-span-5 prose mx-auto w-full language-json highlight highlighter-rouge"
       >
         <pre class="highlight" id="codeBlock">
 {{ site.data.example | jsonify }}
         </pre>
-      </div>
+      </div> -->
       <div
         class="col-start-6 col-span-5 prose mx-auto w-full language-json highlight highlighter-rouge"
       >
-        {% include yample.json %}
+        <pre class="highlight" id="codeBlock">
+  {{ site.data.example | jsonify }}
+      </pre
+        >
       </div>
     </div>
 
@@ -445,7 +448,6 @@
       integrity="sha384-MWfCL6g1OTGsbSwfuMHc8+8J2u71/LA8dzlIN3ycajckxuZZmF+DNjdm7O6H3PSq"
     ></script>
     <script type="text/javascript">
-      
       function generateVinLink() {
         var x = document.getElementById("vin");
         let projectTitle = document.getElementById("project-title").textContent;
@@ -453,34 +455,44 @@
         var currentVal = x.value;
         const vinValue = currentVal ? currentVal : defaultVal;
         const newLink = `${projectTitle}/${vinValue}`;
-        
+
         if (newLink) {
           window.open(newLink);
         }
       }
       document
-      .getElementById("toolButton")
-      .addEventListener("click", generateVinLink);
-      
+        .getElementById("toolButton")
+        .addEventListener("click", generateVinLink);
+
       const codeWindow = document.querySelector(
         ".language-json.highlighter-rouge"
-        );
-        const codeHeader = `
+      );
+      const codeHeader = `
         <div class="flex items-center justify-end border-b-4 bg-[#01111D] border-[#122D42] z-50 rounded-t-[4px] h-[46px] -mb-[27px] z-40 mt-8">
           <h3 class="p-4 px-6 m-0 uppercase text-[#5F7E97] text-sm">
             JSON
             </h3>
             </div>
             `;
-            
-            codeWindow.insertAdjacentHTML("afterbegin", codeHeader);
-            var code = document.getElementById("code").innerText;
-            code.innerHTML = JSON.stringify(JSON.parse(code), null, 2);
 
-            var obj = document.getElementById("codeBlock").innerText;
-            var pretty = JSON.stringify(JSON.parse(obj), null, 2);
-            document.getElementById("codeBlock").innerText = pretty;
-            </script>
+      codeWindow.insertAdjacentHTML("afterbegin", codeHeader);
+      // var code = document.getElementById("codeBlock");
+      // code.innerHTML = JSON.stringify(JSON.parse(code), null, 2);
+      // console.log(code);
+      var code = document.getElementById("codeBlock");
+      console.log(code);
+      var codeText = code.textContent;
+      var json = JSON.stringify(JSON.parse(codeText), null, 2);
+      var newCode = `${json}`;
+      document.getElementById("codeBlock").innerText = null;
+
+      code.insertAdjacentHTML("afterbegin", newCode);
+
+      console.log(json);
+
+      // var obj = document.getElementById("codeBlock").innerText;
+      // var pretty = JSON.stringify(JSON.parse(obj), null, 3);
+      // document.getElementById("codeBlock").innerText = pretty;
+    </script>
   </body>
-  </html>
-  
+</html>
