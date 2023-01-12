@@ -380,8 +380,8 @@
         </div>
       </div>
 
-      <div class="col-start-6 col-span-5 prose mx-auto w-full line-numbers">
-        {% if site.data.example %} {{ site.data.example | pretty_json }} {% else
+      <div class="col-start-6 col-span-5 prose mx-auto w-full">
+        {% if site.data.example %} {{ site.data.example | markdownify }} {% else
         %} {{ content }} {% endif %}
       </div>
     </div>
