@@ -381,9 +381,18 @@
       </div>
 
       <div class="col-start-6 col-span-5 prose mx-auto w-full">
-        {% highlight ruby linenos %} {% if site.data.example %} {{
-        site.data.example | jsonify }} {% else %} {{ content }} {% endif %} 
-        {% endhighlight %}
+        <div class="language-json highlighter-rouge">
+          <div class="highlight whitespace-pre-line">
+            <pre class="highlight language-json line-numbers whitespace-pre-line">
+              {% if site.data.example %} {{ site.data.example | jsonify }} {% else
+              %} {{ content }} {% endif %}
+            </pre>
+          </div>
+        </div>
+        <pre>
+          <code class="language-json line-numbers">
+          </code>
+        </pre>
       </div>
     </div>
 
