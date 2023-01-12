@@ -383,18 +383,6 @@
       <div
         class="col-start-6 col-span-5 prose mx-auto w-full language-json highlight highlighter-rouge"
       >
-        {{ content }}
-      </div>
-      <!-- <div
-        class="col-start-6 col-span-5 prose mx-auto w-full language-json highlight highlighter-rouge"
-      >
-        <pre class="highlight" id="codeBlock">
-{{ site.data.example | jsonify }}
-        </pre>
-      </div> -->
-      <div
-        class="col-start-6 col-span-5 prose mx-auto w-full language-json highlight highlighter-rouge"
-      >
         <pre class="highlight" id="codeBlock">
   {{ site.data.example | jsonify }}
       </pre
@@ -476,23 +464,13 @@
             `;
 
       codeWindow.insertAdjacentHTML("afterbegin", codeHeader);
-      // var code = document.getElementById("codeBlock");
-      // code.innerHTML = JSON.stringify(JSON.parse(code), null, 2);
-      // console.log(code);
       var code = document.getElementById("codeBlock");
-      console.log(code);
       var codeText = code.textContent;
       var json = JSON.stringify(JSON.parse(codeText), null, 2);
       var newCode = `${json}`;
       document.getElementById("codeBlock").innerText = null;
-
       code.insertAdjacentHTML("afterbegin", newCode);
-
       console.log(json);
-
-      // var obj = document.getElementById("codeBlock").innerText;
-      // var pretty = JSON.stringify(JSON.parse(obj), null, 3);
-      // document.getElementById("codeBlock").innerText = pretty;
     </script>
   </body>
 </html>
