@@ -382,7 +382,12 @@
 
       <div class="col-start-6 col-span-5 prose mx-auto w-full language-json highlight highlighter-rouge">
         {{ content }}
+        ```
+        {{ site.data.example | jsonify }}
+        ```
+        {: .language-json}
       </div>
+    </div>
 
     <footer class="col-span-10 pt-[60px] w-full">
       <div
