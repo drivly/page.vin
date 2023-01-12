@@ -1,5 +1,3 @@
-# PAGE.VIN
-
 ```json
 {
   "core": {
