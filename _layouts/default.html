@@ -389,9 +389,7 @@
         class="col-start-6 col-span-5 prose mx-auto w-full language-json highlight highlighter-rouge"
       >
         <pre class="highlight" id="codeBlock">
-          <code class="language-json">
 {{ site.data.example | jsonify }}
-          </code>
         </pre>
       </div>
       <div
@@ -478,7 +476,7 @@
             codeWindow.insertAdjacentHTML("afterbegin", codeHeader);
             var code = document.getElementById("code").innerText;
             code.innerHTML = JSON.stringify(JSON.parse(code), null, 2);
-            
+
             var obj = document.getElementById("codeBlock").innerText;
             var pretty = JSON.stringify(JSON.parse(obj), null, 2);
             document.getElementById("codeBlock").innerText = pretty;
