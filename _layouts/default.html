@@ -379,13 +379,10 @@
           </button>
         </div>
       </div>
-      <div class="col-start-6 col-span-5 prose mx-auto w-full highlight">
+      <div class="col-start-6 col-span-5 prose mx-auto w-full">
           <div class="language-json highlighter-rouge w-full">
-          <pre class="highlight language-json" id="code">
-            <code class="language-json">
-              {{ site.data.example }}
-            </code>
-  
+          <pre class="highlight language-json" id="code">  
+              {{ site.data.example | jsonify }}}
           </pre>
         </div>
       </div>
