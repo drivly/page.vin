@@ -1,4 +1,3 @@
-```json
 {
   "core": {
     "ctx": "⚙️ Vehicle Context",
@@ -33,4 +32,3 @@
     "ship": "🚛 Transport & Delivery"
   }
 }
-```
