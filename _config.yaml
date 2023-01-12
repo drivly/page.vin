@@ -1,7 +1,3 @@
-# Build settings
-markdown: kramdown
-kramdown:
-  input: GFM
 title: OEM vehicle information tool you'll enjoy using
 description: VIN is your source for all OEM information about a vehicle.
 callToAction: Launch
