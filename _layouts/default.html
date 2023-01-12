@@ -220,7 +220,7 @@
       </div>
 
       <div class="col-start-6 col-span-5 prose mx-auto w-full">
-        {{ content }}
+        {{ site.data.example | jsonify | content }}
       </div>
     </div>
 
