@@ -10,53 +10,19 @@
         theme: {
           extend: {
             colors: {
+              DRIVLY: "#060611",
               DRIVLY_GREEN: "#00CAB9",
+              DRIVLY_BLUE: "#58667E",
             },
             fontFamily: {
               IBM: ["IBM Plex Sans", "sans-serif"],
               Montserrat: ["Montserrat", "sans-serif"],
               Consolas: ["Consolas", "monospace"],
+              Inter: ["Inter", "sans-serif"],
             },
             typography: {
               DEFAULT: {
                 css: {
-                  h1: {
-                    color: "#060611",
-                    fontFamily: "Montserrat",
-                    fontWeight: "bold !important",
-                    fontSize: ["64px"],
-                    lineHeight: ["92px"],
-                  },
-                  h2: {
-                    color: "#231323",
-                    fontFamily: "Montserrat",
-                    fontWeight: 700,
-                    fontStyle: "normal",
-                    fontSize: ["32px"],
-                    lineHeight: ["39px"],
-                  },
-                  h3: {
-                    fontFamily: "Montserrat",
-                    fontWeight: 500,
-                    fontStyle: "normal",
-                    fontSize: ["24px"],
-                    lineHeight: ["32px"],
-                  },
-                  h5: {
-                    color: "#231323",
-                    fontFamily: "IBM Plex Sans",
-                    fontWeight: 400,
-                    fontSize: ["24px"],
-                    lineHeight: ["32px"],
-                  },
-                  p: {
-                    color: "#4D4E58",
-                    fontFamily: "IBM Plex Sans",
-                    fontWeight: 400,
-                    fontSize: ["18px"],
-                    lineHeight: "24px",
-                    marginBottom: "4px",
-                  },
                   pre: {
                     height: "auto",
                     maxHeight: ["500px"],
@@ -66,24 +32,6 @@
                     height: "auto",
                     maxHeight: ["500px"],
                     marginBottom: ["20px"],
-                  },
-                  ol: {
-                    listStyle: "none",
-                  },
-                  ul: {
-                    listStyle: "none",
-                    marginTop: "0px",
-                  },
-                  li: {
-                    overflowWrap: "anywhere",
-                    marginTop: 0,
-                    marginBottom: 0,
-                  },
-                  a: {
-                    overflowWrap: "anywhere",
-                    textDecoration: "none",
-                    marginTop: 0,
-                    padding: 0,
                   },
                 },
               },
@@ -99,14 +47,12 @@
         font-weight: normal;
         font-style: normal;
       }
-
       @font-face {
         font-family: Consolas, Menlo, Courier, monospace;
         src: local(""), url("/fonts/CONSOLAB.TTF") format("ttf");
         font-weight: bold;
         font-style: normal;
       }
-
       .token.property {
         color: #80cac3;
       }
@@ -120,134 +66,11 @@
       html {
         overflow-wrap: break-word;
       }
-      body {
-        margin: 0;
-        padding: 0;
-      }
       pre,
       code {
         height: auto;
         max-height: 500px;
         padding-bottom: 22.5px;
-      }
-      h1 {
-        color: #060611;
-        font-family: "Montserrat";
-        font-weight: 700 !important;
-        font-size: 40px;
-        line-height: 40px;
-        text-transform: capitalize;
-      }
-      h1 > a {
-        color: #060611;
-        font-family: "Montserrat";
-        font-weight: 700 !important;
-        font-size: 40px;
-        line-height: 40px;
-        text-transform: capitalize;
-      }
-      h2 {
-        color: #231323;
-        font-family: "IBM Plex Sans";
-        font-style: normal;
-        font-weight: 400;
-        font-size: 32px;
-        line-height: 24px;
-      }
-      h2 > a {
-        color: #231323;
-        font-family: "IBM Plex Sans";
-        font-style: normal;
-        font-weight: 400 !important;
-        font-size: 32px;
-        line-height: 24px;
-      }
-      h3 > a {
-        color: #060611;
-        font-family: Montserrat;
-        font-weight: 500 !important;
-        font-style: normal;
-        font-size: 24px;
-        line-height: 32px;
-      }
-      p {
-        color: #4d4e58;
-        font-family: "IBM Plex Sans";
-        font-style: normal;
-        font-weight: 400;
-        font-size: 18px;
-        line-height: 1.7rem;
-        margin-bottom: 4px;
-      }
-      ul {
-        padding-left: -10px;
-        padding: 0;
-        list-style: none;
-        position: relative;
-        margin-top: 0px;
-        /* Setup the counter. */
-      }
-      ul > li::before {
-        content: "";
-        /* Use the counter number as content. */
-        background-color: #060611;
-        border-radius: 4px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 6px;
-        height: 6px;
-        padding: 2px;
-        position: absolute;
-        left: 0;
-        margin-left: 8px;
-        margin-top: 10px;
-      }
-      ol {
-        list-style-type: none;
-        padding-left: -10px;
-        padding: 0;
-        /* Setup the counter. */
-        counter-reset: list;
-      }
-      ol > li::before {
-        list-style: none;
-        /* Advance the number. */
-        counter-increment: list;
-        /* Use the counter number as content. */
-        content: counter(list);
-        color: #4d4e58;
-        background-color: rgb(243 244 246);
-        border-radius: 4px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 20px;
-        height: 24px;
-        margin-right: 8px;
-      }
-      ol > li {
-        padding-left: -6px;
-        display: flex;
-        align-items: center;
-        margin: 0px 0px 16px -31px;
-        padding: 0;
-      }
-      li {
-        color: #4d4e58;
-        font-family: IBM Plex Sans;
-        font-weight: 400;
-        font-size: 18px;
-        line-height: 24px;
-        margin-top: 0px;
-        margin-bottom: 0px;
-      }
-      a {
-        margin: 0 !important;
-        padding: 0;
-      }
-      a:hover {
-        text-decoration: underline;
       }
     </style>
     <link
@@ -265,7 +88,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <script
@@ -299,12 +122,8 @@
       <div class="flex justify-start items-center flex-1">
         <a href="#">
           <span class="sr-only">Docs</span>
-          <p
-            id="project-title"
-            class="w-auto text-3xl text-bold flex flex-row items-center"
-          >
+          <p id="project-title" class="w-auto flex flex-row items-center">
             {% include vinIcon.html %}
-            <!-- <img src="/assets/VIN.svg" alt=".VIN" /> -->
           </p>
         </a>
       </div>
@@ -313,7 +132,7 @@
           href="{{ site.gettingStarted | default: '/login' }}"
           target="_blank"
           referrerpolicy="no-referrer"
-          class="ml-8 whitespace-nowrap inline-flex items-center justify-between py-2 font-IBM text-base font-medium text-[#060611]/50 gap-x-3"
+          class="ml-8 whitespace-nowrap inline-flex items-center justify-between py-2 font-IBM text-base font-medium text-DRIVLY/50 gap-x-3"
         >
           Get Started {% include githubIcon.html variant="rgba(6, 6, 17, 0.5)"
           %}
@@ -321,32 +140,26 @@
       </div>
     </nav>
     <div
-      class="flex flex-col xl:flex-row items-center xl:col-start-2 xl:col-span-10 xl:grid xl:grid-cols-10 xl:gap-x-4"
+      class="flex flex-col xl:flex-row items-center xl:col-start-2 xl:col-span-10 xl:grid xl:grid-cols-10 xl:gap-x-4 h-full"
     >
       <div
         class="col-start-1 col-span-4 max-w-lg w-full mx-auto text-center xl:text-left"
       >
         <h1
-          class="mt-3 text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl md:text-6xl"
+          class="mt-3 font-bold text-DRIVLY text-[56px] leading-[84px] lg:text-[64px] lg:leading-[92px] font-Montserrat"
         >
-          {{ site.title | "OEM vehicle information tool <wbr />you'll enjoy
-          using" }}
+          {{ site.github.project_tagline | "Page.VIN is your source for all OEM
+          information about a vehicle." }}
         </h1>
-        <p
-          class="mx-auto mt-3 max-w-md text-base text-zinc-500 sm:text-lg md:mt-5 md:max-w-3xl md:text-xl"
-        >
-          {{ site.description | "VIN is your source for all OEM information
-          about a vehicle." }}
-        </p>
-        <div class="mt-11">
+        <div class="mt-11 font-Inter">
           <div class="text-left">
             <label
               for="api.vin"
-              class="text-[#58667E] pb-[21px] font-medium text-sm tracking-[0.02em] font-Montserrat whitespace-nowrap"
+              class="text-DRIVLY_BLUE pb-[21px] font-medium text-[14px] tracking-[0.02em] whitespace-nowrap leading-[17px]"
               >Enter VIN</label
             >
             <div
-              class="mt-[21px] flex items-center font-Consolas drop-shadow-[0_6px_25px_rgba(0,0,0,0.05)]"
+              class="mt-[21px] flex items-center drop-shadow-[0_6px_25px_rgba(0,0,0,0.05)]"
             >
               <span
                 id="projectTitle"
@@ -371,7 +184,7 @@
             class="group flex w-full justify-center items-center rounded-[5px] sm:rounded-r-[4px] bg-DRIVLY_GREEN px-3 py-3 text-lg focus:outline-none hover:bg-opacity-95 focus:ring-0 mt-8 h-[52px]"
           >
             <span
-              class="group-hover:brightness-150 tracking-widest text-white text-lg leading-[22px] font-semibold capitalize font-Montserrat"
+              class="group-hover:brightness-150 tracking-widest text-white text-lg leading-[22px] font-semibold capitalize"
             >
               {{ site.callToAction | default: "Launch" }}
             </span>
