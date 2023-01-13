@@ -108,7 +108,7 @@
     </script>
   </head>
   <body
-    class="min-h-screen bg-white relative flex flex-col justify-center xl:grid xl:grid-cols-12 gap-x-4 px-4 xl:px-16"
+    class="bg-white relative flex flex-col justify-center xl:grid xl:grid-cols-12 gap-x-4 px-4 xl:px-16"
     data-instant-allow-external-links
     style="
       background-image: url('https://res.cloudinary.com/dtram9qiy/image/upload/v1673505059/my-upload/abftlkp3xvejmzpngbmy.svg');
@@ -140,7 +140,7 @@
       </div>
     </nav>
     <div
-      class="flex flex-col xl:flex-row items-center xl:col-start-2 xl:col-span-10 xl:grid xl:grid-cols-10 xl:gap-x-4 h-full"
+      class="flex flex-col xl:flex-row items-center xl:col-start-2 xl:col-span-10 xl:grid xl:grid-cols-10 xl:gap-x-4 h-screen h-full -mt-[125px]"
     >
       <div
         class="col-start-1 col-span-4 max-w-lg w-full mx-auto text-center xl:text-left"
@@ -174,7 +174,7 @@
                 id="vin"
                 value="SCFRMFAW3LGL09248"
                 placeholder="1FMEE5DP3MLA96217"
-                class="w-full h-[50px] outline-none border-[#DBE2E7] focus:ring-0 flex items-center placeholder:text-gray-500 text-[#151515] text-base sm:text-lg rounded-r-[5px] tracking-[0.12em]"
+                class="w-full h-[50px] outline-none border-[#DBE2E7] focus:ring-0 flex items-center placeholder:text-gray-400 text-[#151515] text-base sm:text-lg rounded-r-[5px] tracking-[0.12em]"
               />
             </div>
           </div>
@@ -203,15 +203,15 @@
       </div>
     </div>
 
-    <footer class="col-span-10 col-start-2 pt-[60px] w-full">
+    <footer class="col-span-10 col-start-2 w-full">
       <div
-        class="border-t border-gray-200 pt-12 pb-10 text-center md:flex md:justify-between"
+        class="border-t border-gray-200 py-16 text-center md:flex md:justify-between"
       >
         {% include socialIcons.html %} {% include poweredByDrivly.html
         variant="flex justify-center mt-8 md:mt-0 md:order-2" %}
         <div class="mt-8 md:mt-0 flex items-center justify-center md:order-1">
           <a class="text-gray-400" href="https://driv.ly">
-            <p class="text-center text-sm sm:text-xs text-gray-400">
+            <p class="text-center text-sm sm:text-xs text-gray-400 font-Inter tracking-[0.02em]">
               Copyright &copy; {{ 'now' | date: "%Y" }} {{ site.owner | default:
               'Auto.dev' }}
             </p>
