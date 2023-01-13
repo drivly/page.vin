@@ -132,7 +132,7 @@
           href="{{ site.gettingStarted | default: '/login' }}"
           target="_blank"
           referrerpolicy="no-referrer"
-          class="ml-8 whitespace-nowrap inline-flex items-center justify-between py-2 font-IBM text-base font-medium text-DRIVLY/50 gap-x-3"
+          class="ml-8 whitespace-nowrap inline-flex items-center justify-between px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gray-800 hover:bg-gray-600 gap-x-3"
         >
           Get Started {% include githubIcon.html variant="rgba(6, 6, 17, 0.5)"
           %}
@@ -207,13 +207,12 @@
       <div
         class="border-t border-gray-200 py-16 text-center md:flex md:justify-between"
       >
-        {% include socialIcons.html %} {% include poweredByDrivly.html
-        variant="flex justify-center mt-8 md:mt-0 md:order-2" %}
+        {% include socialIcons.html %} 
+        <!-- {% include poweredByDrivly.html variant="flex justify-center mt-8 md:mt-0 md:order-2" %} -->
         <div class="mt-8 md:mt-0 flex items-center justify-center md:order-1">
           <a class="text-gray-400" href="https://driv.ly">
             <p class="text-center text-sm sm:text-xs text-gray-400 font-Inter tracking-[0.02em]">
-              Copyright &copy; {{ 'now' | date: "%Y" }} {{ site.owner | default:
-              'Auto.dev' }}
+              © {{ 'now' | date: "%Y" }} Drivly Inc. All rights reserved.
             </p>
           </a>
         </div>
