@@ -91,9 +91,10 @@
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+    <!-- Google tag (gtag.js) -->
     <script
       async
-      src="https://www.googletagmanager.com/gtag/js?id=G-1H20T9FMJY"
+      src="https://www.googletagmanager.com/gtag/js?id=G-8CPG2PXJ72"
     ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -101,7 +102,8 @@
         dataLayer.push(arguments);
       }
       gtag("js", new Date());
-      gtag("config", "G-1H20T9FMJY");
+
+      gtag("config", "G-8CPG2PXJ72");
     </script>
     <script id="json" type="application/json">
       {{ site.data | jsonify }}
@@ -117,9 +119,7 @@
       background-attachment: fixed;
     "
   >
-    <nav
-      class="flex justify-between pt-4 z-50 xl:col-span-10 xl:col-start-2"
-    >
+    <nav class="flex justify-between pt-4 z-50 xl:col-span-10 xl:col-start-2">
       <div class="flex justify-start items-center flex-1">
         <a href="#">
           <span class="sr-only">Docs</span>
@@ -135,8 +135,7 @@
           referrerpolicy="no-referrer"
           class="ml-8 whitespace-nowrap inline-flex items-center justify-between px-4 py-2 border border-[#DBE2E7] rounded-[5px] drop-shadow-[0_10px_36px_rgba(0,0,0,0.05)] text-base font-medium text-DRIVLY bg-[#F8FAFD] hover:bg-DRIVLY gap-x-3 hover:text-white transition duration-150 ease-in-out"
         >
-          Get Started {% include githubIcon.html variant="currentColor"
-          %}
+          Get Started {% include githubIcon.html variant="currentColor" %}
         </a>
       </div>
     </nav>
@@ -208,11 +207,13 @@
       <div
         class="border-t xl:border-none border-gray-200 py-16 text-center md:flex md:justify-between"
       >
-        {% include socialIcons.html %} 
+        {% include socialIcons.html %}
         <!-- {% include poweredByDrivly.html variant="flex justify-center mt-8 md:mt-0 md:order-2" %} -->
         <div class="mt-8 md:mt-0 flex items-center justify-center md:order-1">
           <a class="text-gray-400" href="https://driv.ly">
-            <p class="text-center text-sm sm:text-xs text-gray-400 font-Inter tracking-[0.02em]">
+            <p
+              class="text-center text-sm sm:text-xs text-gray-400 font-Inter tracking-[0.02em]"
+            >
               © {{ 'now' | date: "%Y" }} Drivly Inc. All rights reserved.
             </p>
           </a>
