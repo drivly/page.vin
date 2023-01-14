@@ -102,7 +102,6 @@
         dataLayer.push(arguments);
       }
       gtag("js", new Date());
-
       gtag("config", "G-8CPG2PXJ72");
     </script>
     <script id="json" type="application/json">
@@ -200,6 +199,9 @@
   {{ site.data.example | jsonify }}
       </pre
         >
+      </div>
+      <div class="flex justify-center items-center w-full mt-8">
+        {% for item in include.apis%}
       </div>
     </div>
 
