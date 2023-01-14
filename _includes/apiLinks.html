@@ -1,6 +1,6 @@
-<ul class="flex flex-wrap justify-center xl:justify-around gap-y-2 items-center space-x-16 mt-16 10xl:mt-0">
+<ul class="flex flex-wrap justify-center xl:justify-around gap-y-2 items-center space-x-16 mt-16 xl:mt-0">
   {% for item in include.apis %}
-    <li class="font-IBM text-DRIVLY text-base">
+    <li class="font-IBM text-DRIVLY text-base font-medium">
       <a href="{{ item.url }}">{{ item.title }}</a>
     </li>
   {% endfor %}
