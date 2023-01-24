@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js">
+      confetti.window = module.exports
+    </script>
+    <title>Notarize POA.vin</title>
+  </head>
+  <body>
+    <header class="absolute inset-x-0 top-0 h-16 py-10">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
+        <nav class="relative z-50 flex justify-between items-center">
+          <div>
+            <a aria-label="Home" href="https://driv.ly" target="_blank">
+              <img
+                class="mx-auto h-8"
+                src="https://uploads-ssl.webflow.com/60bee04bdb1a7a33432ce295/60beeb6f38814ea48d5c7c02_Drivly_logo_light.svg" />
+            </a>
+          </div>
+          <div class="flex items-center block"></div>
+        </nav>
+      </div>
+    </header>
+    <div
+      class="relative flex min-h-screen flex-col justify-center overflow-hidden bg-[#060611] py-4 sm:py-1">
+      <div class="mx-auto max-w-2xl px-4 sm:py-10 text-center sm:px-6 lg:px-8">
+        <!-- Call Out -->
+        <div class="mx-auto py-5">
+          <span
+            class="inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-[#00cab9]/25 text-[#00cab2]">
+            Success
+          </span>
+        </div>
+        <h1 class="mx-auto max-w-2xl font-bold tracking-tight text-slate-50 md:text-6xl text-6xl">
+          Thanks for completing the notarization! 🎉
+        </h1>
+        <div class="mx-auto mt-6 max-w-xl text-md tracking-loose text-slate-400 prose py-3">
+          What happens next? We will review your documents, determine your next steps and contact
+          you shortly!
+        </div>
+        
+      </div>
+    </div>
+    <canvas id="my-canvas" class="custom-canvas"></canvas>
+    <script>
+      function realistic() {
+        var count = 200;
+        var defaults = {
+          origin: { y: 0.7 }
+        };
+
+        function fire(particleRatio, opts) {
+          confetti(Object.assign({}, defaults, opts, {
+            particleCount: Math.floor(count * particleRatio),
+            colors: ["#00CAB9", "#7FE4DC", "CCF4F1"]
+          }));
+        }
+
+        fire(0.25, {
+          spread: 26,
+          startVelocity: 55,
+        });
+        fire(0.2, {
+          spread: 60,
+        });
+        fire(0.35, {
+          spread: 100,
+          decay: 0.91,
+          scalar: 0.8
+        });
+        fire(0.1, {
+          spread: 120,
+          startVelocity: 25,
+          decay: 0.92,
+          scalar: 1.2
+        });
+        fire(0.1, {
+          spread: 120,
+          startVelocity: 45,
+        });
+      }
+      realistic()
+    </script>
+  </body>
+</html>
